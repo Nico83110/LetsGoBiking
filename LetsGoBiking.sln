@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingServer", "RoutingSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCache", "ProxyCache\ProxyCache.csproj", "{36B7059E-F053-4152-B6E4-D5049E93F8DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeavyWebClient", "HeavyWebClient\HeavyWebClient.csproj", "{3D04F4A8-F726-4747-A60D-0AF6254A4F9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D04F4A8-F726-4747-A60D-0AF6254A4F9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D04F4A8-F726-4747-A60D-0AF6254A4F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D04F4A8-F726-4747-A60D-0AF6254A4F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D04F4A8-F726-4747-A60D-0AF6254A4F9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
