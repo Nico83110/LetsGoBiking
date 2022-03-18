@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingServer", "RoutingServer\RoutingServer.csproj", "{03FEFC06-17F9-4DE3-BCB9-46459FF47D0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCache", "ProxyCache\ProxyCache.csproj", "{36B7059E-F053-4152-B6E4-D5049E93F8DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{03FEFC06-17F9-4DE3-BCB9-46459FF47D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03FEFC06-17F9-4DE3-BCB9-46459FF47D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03FEFC06-17F9-4DE3-BCB9-46459FF47D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B7059E-F053-4152-B6E4-D5049E93F8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
