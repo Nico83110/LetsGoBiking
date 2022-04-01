@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "03fefc06-17f9-4de3-bcb9-46459ff47d0c": {
+      "ProjectGuid": "03fefc06-17f9-4de3-bcb9-46459ff47d0c",
+      "DisplayName": "RoutingServer",
+      "ColorIndex": 0
+    },
+    "36b7059e-f053-4152-b6e4-d5049e93f8da": {
+      "ProjectGuid": "36b7059e-f053-4152-b6e4-d5049e93f8da",
+      "DisplayName": "ProxyCache",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    },
+    "3d04f4a8-f726-4747-a60d-0af6254a4f9d": {
+      "ProjectGuid": "3d04f4a8-f726-4747-a60d-0af6254a4f9d",
+      "DisplayName": "HeavyWebClient",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
