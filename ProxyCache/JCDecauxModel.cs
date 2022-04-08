@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System;
 
 
 namespace ProxyCache
@@ -18,7 +19,7 @@ namespace ProxyCache
         private static readonly HttpClient client = new HttpClient();
 
         [DataMember]
-        public StationModelStatic station { get; set; }
+        public StationModel station { get; set; }
 
         public JCDecauxModel()
         {
@@ -31,7 +32,7 @@ namespace ProxyCache
             station = CallREST(request).Result;
         }
 
-        private static async Task<StationModelStatic> CallREST(string request)
+        private static async Task<StationModel> CallREST(string request)
         {
             try
             {
@@ -39,62 +40,63 @@ namespace ProxyCache
                 response.EnsureSuccessStatusCode();
                 string returnedBody = await response.Content.ReadAsStringAsync();
 
-                return JsonSerializer.Deserialize<StationModelStatic>(returnedBody);
+                return JsonSerializer.Deserialize<StationModel>(returnedBody);
             }
             catch (HttpRequestException)
             {
-                return new StationModelStatic();
+                return new StationModel();
             }
         }
 
 
     }
+    
 
     //Data defined as in the JCDecaux API
 
+
     [DataContract]
-    public class StationModelStatic
+    public class StationModel
     {
-        /** Static data **/
-
-        [DataMember]
-        public int number { get; set; } //Unique number inside the station
-
-        [DataMember]
-        public string contractName { get; set; } //The contract name of this station
-
-        [DataMember]
-        public string name { get; set; } //The name of this station
-
-        [DataMember]
-        public string address  { get; set; } //An indicative address of the station, it's more like a comment
-
-        [DataMember]
-        public Position position { get; set; } //The coordinates in the WGS84 format
-
-        [DataMember]
-        public bool banking { get; set; } //Indicates if there is a payment terminal
-
-        [DataMember]
-        public bool bonus { get; set; } //Indicates if it's a "bonus" station
-
-        [DataMember]
-        public bool overflow { get; set; } //Indicates if the station accepts the bike rack in "overflow"
-
-        [DataMember]
-        public object shape { get; set; } //Not used at the moment...
-
+        public int number { get; set; }
+        public string contractName { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        public Position position { get; set; }
+        public bool banking { get; set; }
+        public bool bonus { get; set; }
+        public string status { get; set; }
+        public DateTime lastUpdate { get; set; }
+        public bool connected { get; set; }
+        public bool overflow { get; set; }
+        public object shape { get; set; }
+        public Stands totalStands { get; set; }
+        public Stands mainStands { get; set; }
+        public object overflowStands { get; set; }
     }
 
-    [DataContract]
     public class Position
     {
-        [DataMember]
-        public double latitude { get; set; }
-
-        [DataMember]
-        public double longitude { get; set; }
+        public float latitude { get; set; }
+        public float longitude { get; set; }
     }
+
+    public class Stands
+    {
+        public Availabilities availabilities { get; set; }
+        public int capacity { get; set; }
+    }
+
+    public class Availabilities
+    {
+        public int bikes { get; set; }
+        public int stands { get; set; }
+        public int mechanicalBikes { get; set; }
+        public int electricalBikes { get; set; }
+        public int electricalInternalBatteryBikes { get; set; }
+        public int electricalRemovableBatteryBikes { get; set; }
+    }
+
 
 
 }
