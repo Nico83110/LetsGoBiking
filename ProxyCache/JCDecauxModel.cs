@@ -58,20 +58,35 @@ namespace ProxyCache
     [DataContract]
     public class StationModel
     {
+        [DataMember]
         public int number { get; set; }
+        [DataMember]
         public string contractName { get; set; }
+        [DataMember]
         public string name { get; set; }
+        [DataMember]
         public string address { get; set; }
+        [DataMember]
         public Position position { get; set; }
+        [DataMember]
         public bool banking { get; set; }
+        [DataMember]
         public bool bonus { get; set; }
+        [DataMember]
         public string status { get; set; }
+        [DataMember]
         public DateTime lastUpdate { get; set; }
+        [DataMember]
         public bool connected { get; set; }
+        [DataMember]
         public bool overflow { get; set; }
+        [DataMember]
         public object shape { get; set; }
+        [DataMember]
         public Stands totalStands { get; set; }
+        [DataMember]
         public Stands mainStands { get; set; }
+        [DataMember]
         public object overflowStands { get; set; }
     }
 
@@ -85,6 +100,27 @@ namespace ProxyCache
         public string country_code { get; set; }
         public string[] cities { get; set; }
     }
+
+
+    public class ParkingModel
+    {
+        public string contractName { get; set; }
+        public string name { get; set; }
+        public int number { get; set; }
+        public string status { get; set; }
+        public Position position { get; set; }
+        public string accessType { get; set; }
+        public string lockerType { get; set; }
+        public bool hasSurveillance { get; set; }
+        public bool isFree { get; set; }
+        public string address { get; set; }
+        public string zipCode { get; set; }
+        public string city { get; set; }
+        public bool isOffStreet { get; set; }
+        public bool hasElectricSupport { get; set; }
+        public bool hasPhysicalReception { get; set; }
+    }
+
 
     public class Position
     {
