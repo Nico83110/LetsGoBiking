@@ -50,7 +50,7 @@ namespace ProxyCache
 
 
     }
-    
+
 
     //Data defined as in the JCDecaux API
 
@@ -73,6 +73,17 @@ namespace ProxyCache
         public Stands totalStands { get; set; }
         public Stands mainStands { get; set; }
         public object overflowStands { get; set; }
+    }
+
+
+    [DataContract]
+
+    public class ContractModel
+    {
+        public string name { get; set; }
+        public string commercial_name { get; set; }
+        public string country_code { get; set; }
+        public string[] cities { get; set; }
     }
 
     public class Position
