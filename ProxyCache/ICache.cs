@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProxyCache
 {
-    public interface ICache
+    public interface ICache<T>
     {
+        T Get(string CacheItem);
     }
 }
