@@ -9,7 +9,7 @@ using System;
 namespace ProxyCache
 {
     [DataContract]
-    public class JCDecauxModel
+    public class JCDecauxItem
     {
         private static readonly string API_key = "c8e8deaba5b4c9af98626d23aad7bff03fe3b1b9";
         private static readonly string url = "https://api.jcdecaux.com/vls/v2/";
@@ -21,12 +21,12 @@ namespace ProxyCache
         [DataMember]
         public StationModel station { get; set; }
 
-        public JCDecauxModel()
+        public JCDecauxItem()
         {
 
         }
 
-        public JCDecauxModel(Dictionary<string, string> infos)
+        public JCDecauxItem(Dictionary<string, string> infos)
         {
             request = url + path + "/" + infos["station_number"] + "?contract=" + infos["contract_name"] + "&apiKey=" + API_key;
             station = CallREST(request).Result;
@@ -92,16 +92,20 @@ namespace ProxyCache
 
 
     [DataContract]
-
     public class ContractModel
     {
+        [DataMember]
         public string name { get; set; }
+        [DataMember]
         public string commercial_name { get; set; }
+        [DataMember]
         public string country_code { get; set; }
+        [DataMember]
         public string[] cities { get; set; }
     }
 
 
+    [DataContract]
     public class ParkingModel
     {
         public string contractName { get; set; }

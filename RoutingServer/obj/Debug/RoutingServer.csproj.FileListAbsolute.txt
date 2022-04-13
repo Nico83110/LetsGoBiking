@@ -1,0 +1,7 @@
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\bin\Debug\RoutingServer.dll.config
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\bin\Debug\RoutingServer.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\bin\Debug\RoutingServer.pdb
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\obj\Debug\RoutingServer.csproj.AssemblyReference.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\obj\Debug\RoutingServer.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\obj\Debug\RoutingServer.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\RoutingServer\obj\Debug\RoutingServer.pdb

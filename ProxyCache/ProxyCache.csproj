@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache.cs" />
-    <Compile Include="JCDecauxModel.cs" />
+    <Compile Include="JCDecauxItem.cs" />
     <Compile Include="IJCDecauxService.cs" />
     <Compile Include="ICache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
