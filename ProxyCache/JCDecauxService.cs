@@ -10,7 +10,8 @@ using System.Text;
 
 namespace ProxyCache
 {
-    public class JCDecaux : IJCDecauxService
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    public class JCDecauxService : IJCDecauxService
     {
         private static string endpoint = "station";
 
