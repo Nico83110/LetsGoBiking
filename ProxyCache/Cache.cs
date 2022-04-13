@@ -21,7 +21,7 @@ namespace ProxyCache
 
         public T Get(string CacheItemName)
         {
-            return (T) cache.Get(CacheItemName);
+            return Get(CacheItemName, dt_default);
         }
 
         /*

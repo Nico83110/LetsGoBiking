@@ -26,6 +26,7 @@ namespace ProxyCache
 
         }
 
+        // JCDecauxItem class with a constructor which makes a request to the JCDecaux API to create a JCDecauxItem object.
         public JCDecauxItem(Dictionary<string, string> infos)
         {
             request = url + path + "/" + infos["station_number"] + "?contract=" + infos["contract_name"] + "&apiKey=" + API_key;
