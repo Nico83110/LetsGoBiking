@@ -29,7 +29,7 @@ namespace ProxyCache
                 { "contract_name", city },
                 { "station_number", stationNumber }
             };
-            return cache.Get(endpoint + "?contract=" + city + "&number=" + stationNumber, duration/*, infos*/);
+            return cache.Get(endpoint + "?contract=" + city + "&number=" + stationNumber, duration, infos);
         }
     }
 

@@ -8,6 +8,8 @@ namespace ProxyCache
 {
     public interface ICache<T>
     {
-        T Get(string CacheItem);
+        T Get(string CacheItemName, Dictionary<string, string> infos);
+        T Get(string CacheItemName, DateTimeOffset dt, Dictionary<string, string> infos);
+        T Get(string CacheItemName, double dt_seconds, Dictionary<string, string> infos);
     }
 }

@@ -19,9 +19,9 @@ namespace ProxyCache
             dt_default = ObjectCache.InfiniteAbsoluteExpiration;
         }
 
-        public T Get(string CacheItemName)
+        public T Get(string CacheItemName, Dictionary<string, string> infos)
         {
-            return Get(CacheItemName, dt_default);
+            return Get(CacheItemName, dt_default, infos);
         }
 
         /*
@@ -31,7 +31,7 @@ namespace ProxyCache
         }
         */
 
-        public T Get(string CacheItemName, DateTimeOffset dt)
+        public T Get(string CacheItemName, DateTimeOffset dt, Dictionary<string, string> infos)
         {
             //if CacheItemName doesn't exist or has a null content then create a new T object and put it in the cache with CacheItemName as the corresponding key.
             if (cache.Get(CacheItemName) == null)
@@ -41,15 +41,20 @@ namespace ProxyCache
                     AbsoluteExpiration = dt
                 };
 
-                cache.Add(CacheItemName, new T(), cacheItemPolicy);
+                //Create an empty object of type T
+                if (infos == null)
+                    cache.Add(CacheItemName, new T(), cacheItemPolicy);
+                //Add to the cache a new instance of T containing data of infos dictionnary
+                else
+                    cache.Add(CacheItemName, (T)Activator.CreateInstance(typeof(T), infos), cacheItemPolicy);
             }
             return (T)cache.Get(CacheItemName);
         }
 
-        public T Get(string CacheItemName, double dt_seconds)
+        public T Get(string CacheItemName, double dt_seconds, Dictionary<string, string> infos)
         {
             //In this case Expiration Time is now + dt_seconds seconds.
-            return Get(CacheItemName, DateTimeOffset.Now.AddSeconds(dt_seconds));
+            return Get(CacheItemName, DateTimeOffset.Now.AddSeconds(dt_seconds), infos);
         }
     }
 }
