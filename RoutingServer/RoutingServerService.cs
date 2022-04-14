@@ -5,18 +5,19 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using ProxyCache;
+using RoutingServer.ExternalCalls;
 
 namespace RoutingServer
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" à la fois dans le code et le fichier de configuration.
     public class RoutingServerService : IRoutingServerService
     {
-        private static JCDecauxService jCDecauxService = new JCDecauxService();
+        private static JCDecauxAPI jCDecauxAPI = new JCDecauxAPI();
         private static List<StationModel> stations = null; //TODO : fill here...
 
-        public string GetData(int value)
+        public List<StationModel> GetAllStations()
         {
-            return string.Format("You entered: {0}", value);
+            return jCDecauxAPI.GetStations().Result;
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

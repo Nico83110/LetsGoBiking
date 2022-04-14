@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProxyCache;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,7 +13,7 @@ namespace RoutingServer
     public interface IRoutingServerService
     {
         [OperationContract]
-        string GetData(int value);
+        List<StationModel> GetAllStations();
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
