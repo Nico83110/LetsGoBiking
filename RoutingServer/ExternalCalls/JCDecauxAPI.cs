@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using ProxyCache;
+using System.Text.Json;
 
 namespace RoutingServer.ExternalCalls
 {
@@ -16,6 +18,22 @@ namespace RoutingServer.ExternalCalls
         public JCDecauxAPI()
         {
 
+        }
+
+        //Get the list of all the existing stations
+        public async Task<List<StationModel>> GetStations()
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(stationsRequest);
+                response.EnsureSuccessStatusCode();
+                string body = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<List<StationModel>>(body);
+            }
+            catch (HttpRequestException)
+            {
+                throw new HttpRequestException();
+            }
         }
     }
 }
