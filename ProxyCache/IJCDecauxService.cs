@@ -11,5 +11,10 @@ namespace ProxyCache
     [ServiceContract]
     public interface IJCDecauxService
     {
+        [OperationContract]
+        JCDecauxItem GetStationDefault(string city, string stationNumber);
+
+        [OperationContract]
+        JCDecauxItem GetStation(string city, string stationNumber, double duration);
     }
 }

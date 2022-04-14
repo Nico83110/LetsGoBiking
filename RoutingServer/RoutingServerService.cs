@@ -13,7 +13,6 @@ namespace RoutingServer
     public class RoutingServerService : IRoutingServerService
     {
         private static JCDecauxAPI jCDecauxAPI = new JCDecauxAPI();
-        private static List<StationModel> stations = null; //TODO : fill here...
 
         public List<StationModel> GetAllStations()
         {

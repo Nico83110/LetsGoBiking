@@ -110,43 +110,68 @@ namespace ProxyCache
     [DataContract]
     public class ParkingModel
     {
+        [DataMember]
         public string contractName { get; set; }
+        [DataMember]
         public string name { get; set; }
+        [DataMember]
         public int number { get; set; }
+        [DataMember]
         public string status { get; set; }
+        [DataMember]
         public Position position { get; set; }
+        [DataMember]
         public string accessType { get; set; }
+        [DataMember]
         public string lockerType { get; set; }
+        [DataMember]
         public bool hasSurveillance { get; set; }
+        [DataMember]
         public bool isFree { get; set; }
+        [DataMember]
         public string address { get; set; }
+        [DataMember]
         public string zipCode { get; set; }
+        [DataMember]
         public string city { get; set; }
+        [DataMember]
         public bool isOffStreet { get; set; }
+        [DataMember]
         public bool hasElectricSupport { get; set; }
+        [DataMember]
         public bool hasPhysicalReception { get; set; }
     }
 
 
     public class Position
     {
+        [DataMember]
         public float latitude { get; set; }
+        [DataMember]
         public float longitude { get; set; }
     }
 
     public class Stands
     {
+        [DataMember]
         public Availabilities availabilities { get; set; }
+        [DataMember]
         public int capacity { get; set; }
     }
 
     public class Availabilities
     {
+        [DataMember]
         public int bikes { get; set; }
+        [DataMember]
         public int stands { get; set; }
+        [DataMember]
         public int mechanicalBikes { get; set; }
+        [DataMember]
         public int electricalBikes { get; set; }
+        [DataMember]
         public int electricalInternalBatteryBikes { get; set; }
+        [DataMember]
         public int electricalRemovableBatteryBikes { get; set; }
     }
 

@@ -1,0 +1,15 @@
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\HeavyWebClient.exe
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\HeavyWebClient.deps.json
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\HeavyWebClient.runtimeconfig.json
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\HeavyWebClient.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\ref\HeavyWebClient.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net6.0\HeavyWebClient.pdb
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.csproj.AssemblyReference.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.AssemblyInfoInputs.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.AssemblyInfo.cs
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\ref\HeavyWebClient.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.pdb
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net6.0\HeavyWebClient.genruntimeconfig.cache
