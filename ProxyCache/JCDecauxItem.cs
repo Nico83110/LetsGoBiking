@@ -93,7 +93,7 @@ namespace ProxyCache
         //This is used for checking the data received in the client
         public override string ToString()
         {
-            return "Contract name: " + contract_name + " name: " + name;
+            return "Contract name: " + contract_name + "\nname: " + name + "\nPosition : " + position;
         }
 
     }
@@ -155,6 +155,10 @@ namespace ProxyCache
         public float latitude { get; set; }
         [DataMember]
         public float longitude { get; set; }
+        public override string ToString()
+        {
+            return "Latitude: " + latitude + " Longitude : " + longitude;
+        }
     }
 
     public class Stands
