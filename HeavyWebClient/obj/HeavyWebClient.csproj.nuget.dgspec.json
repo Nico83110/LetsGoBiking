@@ -27,7 +27,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
+              },
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,6 +46,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,6 +69,40 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj",
+        "projectName": "ProxyCache",
+        "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj",
+        "projectName": "RoutingServer",
+        "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
       }
     }
   }
