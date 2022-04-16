@@ -62,7 +62,7 @@ namespace ProxyCache
         [DataMember]
         public int number { get; set; }
         [DataMember]
-        public string contractName { get; set; }
+        public string contract_name { get; set; }
         [DataMember]
         public string name { get; set; }
         [DataMember]
@@ -76,7 +76,7 @@ namespace ProxyCache
         [DataMember]
         public string status { get; set; }
         [DataMember]
-        public DateTime lastUpdate { get; set; }
+        public DateTime last_update { get; set; }
         [DataMember]
         public bool connected { get; set; }
         [DataMember]
@@ -84,11 +84,17 @@ namespace ProxyCache
         [DataMember]
         public object shape { get; set; }
         [DataMember]
-        public Stands totalStands { get; set; }
+        public Stands total_stands { get; set; }
         [DataMember]
-        public Stands mainStands { get; set; }
+        public Stands main_stands { get; set; }
         [DataMember]
-        public object overflowStands { get; set; }
+        public object overflow_stands { get; set; }
+
+        //This is used for checking the data received in the client
+        public override string ToString()
+        {
+            return "Contract name: " + contract_name + " name: " + name;
+        }
 
     }
 
@@ -111,7 +117,7 @@ namespace ProxyCache
     public class ParkingModel
     {
         [DataMember]
-        public string contractName { get; set; }
+        public string contract_name { get; set; }
         [DataMember]
         public string name { get; set; }
         [DataMember]
@@ -121,25 +127,25 @@ namespace ProxyCache
         [DataMember]
         public Position position { get; set; }
         [DataMember]
-        public string accessType { get; set; }
+        public string access_type { get; set; }
         [DataMember]
-        public string lockerType { get; set; }
+        public string locker_type { get; set; }
         [DataMember]
-        public bool hasSurveillance { get; set; }
+        public bool has_surveillance { get; set; }
         [DataMember]
-        public bool isFree { get; set; }
+        public bool is_free { get; set; }
         [DataMember]
         public string address { get; set; }
         [DataMember]
-        public string zipCode { get; set; }
+        public string zip_code { get; set; }
         [DataMember]
         public string city { get; set; }
         [DataMember]
-        public bool isOffStreet { get; set; }
+        public bool is_off_street { get; set; }
         [DataMember]
-        public bool hasElectricSupport { get; set; }
+        public bool has_electric_support { get; set; }
         [DataMember]
-        public bool hasPhysicalReception { get; set; }
+        public bool has_physical_reception { get; set; }
     }
 
 
@@ -166,13 +172,13 @@ namespace ProxyCache
         [DataMember]
         public int stands { get; set; }
         [DataMember]
-        public int mechanicalBikes { get; set; }
+        public int mechanical_bikes { get; set; }
         [DataMember]
-        public int electricalBikes { get; set; }
+        public int electrical_bikes { get; set; }
         [DataMember]
-        public int electricalInternalBatteryBikes { get; set; }
+        public int electrical_internal_battery_bikes { get; set; }
         [DataMember]
-        public int electricalRemovableBatteryBikes { get; set; }
+        public int electrical_removable_battery_bikes { get; set; }
     }
 
 

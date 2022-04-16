@@ -22,8 +22,9 @@ namespace HeavyWebClient
             IRoutingServerService wcfClient = myChannelFactory.CreateChannel();
 
             List<StationModel> stations = wcfClient.GetAllStations();
-            Console.WriteLine("Voici le contenu de la liste de toutes les stations : \n");
-            Console.WriteLine(stations);
+            String stationInfos = stations[0].ToString();
+            Console.WriteLine("Voici le contenu de la première station : \n");
+            Console.WriteLine(stationInfos);
         }
     }
 }
