@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using ProxyCache;
 using RoutingServer.ExternalCalls;
+using System.ServiceModel.Web;
 
 namespace RoutingServer
 {
@@ -23,7 +24,7 @@ namespace RoutingServer
         public StationModel GetSpecificStation(string city, string station_number)
         {
             Console.WriteLine("Calling GetSpecificStation method...");
-            StationModel station = proxy.GetStationInfos(city, station_number).Result;
+            StationModel station = proxy.GetStationInfos(city, station_number).Result.station;
             return station;
         }
 

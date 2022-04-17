@@ -17,9 +17,9 @@ namespace HeavyWebClient
                 MaxBufferSize = 2000000,
                 MaxReceivedMessageSize = 2000000
             };
-            EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/RoutingServer/Service1/");
-            ChannelFactory<IRoutingServerService> myChannelFactory = new ChannelFactory<IRoutingServerService>(binding, endpoint);
-            IRoutingServerService wcfClient = myChannelFactory.CreateChannel();
+            EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/ProxyCache/Service1/");
+            ChannelFactory<IJCDecauxService> myChannelFactory = new ChannelFactory<IJCDecauxService>(binding, endpoint);
+            IJCDecauxService wcfClient = myChannelFactory.CreateChannel();
 
             /*
             List<StationModel> stations = wcfClient.GetAllStations();
@@ -28,7 +28,7 @@ namespace HeavyWebClient
             Console.WriteLine(stationInfos);
             */
 
-            StationModel station = wcfClient.GetSpecificStation("marseille", "9087");
+            StationModel station = wcfClient.GetStationDefault("marseille", "9087").station;
             Console.WriteLine("Voici des détails de la station 9087 à Marseille :\n");
             Console.WriteLine(station.contract_name + " " + station.position);
         }

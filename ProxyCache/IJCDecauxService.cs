@@ -12,7 +12,7 @@ namespace ProxyCache
     public interface IJCDecauxService
     {
         [OperationContract]
-        [WebInvoke(UriTemplate = "station?city={city}&number={station_number}")]
+        [WebInvoke(Method = "GET", UriTemplate = "station?city={city}&number={station_number}")]
         JCDecauxItem GetStationDefault(string city, string station_number);
 
         [OperationContract]

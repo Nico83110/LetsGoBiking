@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace RoutingServer
@@ -16,6 +17,7 @@ namespace RoutingServer
         List<StationModel> GetAllStations();
 
         [OperationContract]
+        //[WebInvoke(Method = "GET", UriTemplate = "station?city={city}&number={station_number}")]
         StationModel GetSpecificStation(string city, string station_number);
 
         [OperationContract]
