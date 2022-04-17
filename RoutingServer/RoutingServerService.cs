@@ -22,6 +22,7 @@ namespace RoutingServer
 
         public StationModel GetSpecificStation(string city, string station_number)
         {
+            Console.WriteLine("Calling GetSpecificStation method...");
             StationModel station = proxy.GetStationInfos(city, station_number).Result;
             return station;
         }

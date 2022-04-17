@@ -16,11 +16,16 @@ namespace RoutingServer.ExternalCalls
         public ProxyCall()
         {
         }
+
         public async Task<StationModel> GetStationInfos(string contract_name, string stationNumber)
         {
             //TODO : Update the ProxyCache config to manage this request
             string request = "http://localhost:8733/ProxyCache/Service1/station?city=" + contract_name + "&number=" + stationNumber;
+            return await GetStationInfos(request);
+        }
 
+        public async Task<StationModel> GetStationInfos(string request)
+        {
             try
             {
                 HttpResponseMessage response = await client.GetAsync(request);
@@ -35,5 +40,7 @@ namespace RoutingServer.ExternalCalls
             }
 
         }
+
+
     }
 }
