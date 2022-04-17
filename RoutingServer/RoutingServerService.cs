@@ -13,10 +13,17 @@ namespace RoutingServer
     public class RoutingServerService : IRoutingServerService
     {
         private static JCDecauxAPI jCDecauxAPI = new JCDecauxAPI();
+        private static ProxyCall proxy = new ProxyCall();
 
         public List<StationModel> GetAllStations()
         {
             return jCDecauxAPI.GetStations().Result;
+        }
+
+        public StationModel GetSpecificStation(string city, string station_number)
+        {
+            StationModel station = proxy.GetStationInfos(city, station_number).Result;
+            return station;
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

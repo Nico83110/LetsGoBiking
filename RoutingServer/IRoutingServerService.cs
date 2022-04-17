@@ -16,6 +16,9 @@ namespace RoutingServer
         List<StationModel> GetAllStations();
 
         [OperationContract]
+        StationModel GetSpecificStation(string city, string station_number);
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: ajoutez vos opérations de service ici

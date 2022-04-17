@@ -17,20 +17,20 @@ namespace ProxyCache
 
         private static Cache<JCDecauxItem> cache = new Cache<JCDecauxItem>();
 
-        public JCDecauxItem GetStationDefault(string city, string stationNumber)
+        public JCDecauxItem GetStationDefault(string city, string number)
         {
             //Default expiration time is now+60 seconds as in the subject.
-            return GetStation(city, stationNumber, 60);
+            return GetStation(city, number, 60);
         }
 
-        public JCDecauxItem GetStation(string city, string stationNumber, double duration)
+        public JCDecauxItem GetStation(string city, string number, double duration)
         {
             Dictionary<string, string> infos = new Dictionary<string, string>
             {
                 { "contract_name", city },
-                { "station_number", stationNumber }
+                { "station_number", number }
             };
-            return cache.Get(endpoint + "?contract=" + city + "&number=" + stationNumber, duration, infos);
+            return cache.Get(endpoint + "?contract=" + city + "&number=" + number, duration, infos);
         }
     }
 

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
-//using System.ServiceModel.Web;
 
 namespace ProxyCache
 {
@@ -12,7 +12,8 @@ namespace ProxyCache
     public interface IJCDecauxService
     {
         [OperationContract]
-        JCDecauxItem GetStationDefault(string city, string stationNumber);
+        [WebInvoke(UriTemplate = "station?city={city}&number={station_number}")]
+        JCDecauxItem GetStationDefault(string city, string station_number);
 
         [OperationContract]
         JCDecauxItem GetStation(string city, string stationNumber, double duration);
