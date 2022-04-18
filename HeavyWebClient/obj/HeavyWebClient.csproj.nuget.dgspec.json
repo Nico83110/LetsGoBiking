@@ -18,15 +18,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net48"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net48": {
+            "targetAlias": "net48",
             "projectReferences": {
               "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
                 "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
@@ -44,30 +44,24 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net48": {
+          "targetAlias": "net48",
           "dependencies": {
             "System.ServiceModel.Http": {
               "target": "Package",
               "version": "[4.9.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
+            },
+            "System.ServiceModel.Web": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
         }
       }
     },
@@ -77,13 +71,13 @@
         "projectName": "ProxyCache",
         "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj",
         "frameworks": {
-          "net472": {
+          "net48": {
             "projectReferences": {}
           }
         }
       },
       "frameworks": {
-        "net472": {}
+        "net48": {}
       }
     },
     "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
