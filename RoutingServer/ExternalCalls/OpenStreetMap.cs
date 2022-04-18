@@ -7,6 +7,8 @@ using System.Net.Http;
 using ProxyCache;
 using System.Runtime.Serialization;
 using System.Text.Json;
+using RoutingServer;
+using System.Device.Location;
 
 namespace RoutingServer.ExternalCalls
 {
@@ -55,6 +57,27 @@ namespace RoutingServer.ExternalCalls
             {
                 return null;
             }
+        }
+
+        public StationModel GetNearestStationFromPosition(Position p)
+        {
+            StationModel result = new StationModel();
+            RoutingServerService rss = new RoutingServerService();
+            List<StationModel> allStations = rss.GetAllStations();
+            GeoCoordinate currentGeoP = new GeoCoordinate(p.latitude, p.longitude);
+            double distance = 100000000000; //No distance should be superior to that hopefully
+
+            foreach(StationModel station in allStations)
+            {
+                GeoCoordinate stationGeoP = new GeoCoordinate(station.position.latitude, station.position.longitude);
+
+                if(currentGeoP.GetDistanceTo(stationGeoP) <= distance)
+                {
+                    result = station;
+                    distance = currentGeoP.GetDistanceTo(stationGeoP);
+                }
+            }
+            return result;
         }
 
 
