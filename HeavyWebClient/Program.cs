@@ -3,6 +3,7 @@ using System.ServiceModel;
 //using System.ServiceModel.Web;
 using RoutingServer;
 using ProxyCache;
+using System.Collections.Generic;
 
 namespace HeavyWebClient
 {
@@ -18,20 +19,17 @@ namespace HeavyWebClient
                 MaxBufferSize = 2000000,
                 MaxReceivedMessageSize = 2000000
             };
-            EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/ProxyCache/Service1/");
-            ChannelFactory<IJCDecauxService> myChannelFactory = new ChannelFactory<IJCDecauxService>(binding, endpoint);
-            IJCDecauxService wcfClient = myChannelFactory.CreateChannel();
+            EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/RoutingServer/Service1/");
+            ChannelFactory<IRoutingServerService> myChannelFactory = new ChannelFactory<IRoutingServerService>(binding, endpoint);
+            IRoutingServerService wcfClient = myChannelFactory.CreateChannel();
 
-            /*
+            
             List<StationModel> stations = wcfClient.GetAllStations();
-            String stationInfos = stations[0].ToString();
-            Console.WriteLine("Voici le contenu de la première station : \n");
-            Console.WriteLine(stationInfos);
-            */
-
-            StationModel station = wcfClient.GetStationDefault("marseille", "9087").station;
-            Console.WriteLine("Voici des détails de la station 9087 à Marseille :\n");
-            Console.WriteLine(station.contract_name + " " + station.position);
+            Console.WriteLine("Voici le contenu de toutes les stations JCDecaux : ");
+            foreach(StationModel station in stations)
+            {
+                Console.WriteLine(station.ToString());
+            }
         }
     }
 }

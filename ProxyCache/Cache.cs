@@ -43,10 +43,15 @@ namespace ProxyCache
 
                 //Create an empty object of type T
                 if (infos == null)
+                {
                     cache.Add(CacheItemName, new T(), cacheItemPolicy);
+                }
                 //Add to the cache a new instance of T containing data of infos dictionnary
                 else
+                {
+                    Console.WriteLine("Entered into the Get method of the Cache...");
                     cache.Add(CacheItemName, (T)Activator.CreateInstance(typeof(T), infos), cacheItemPolicy);
+                }
             }
             return (T)cache.Get(CacheItemName);
         }

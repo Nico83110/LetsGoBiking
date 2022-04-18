@@ -14,6 +14,7 @@ namespace RoutingServer
     public interface IRoutingServerService
     {
         [OperationContract]
+        [WebGet]
         List<StationModel> GetAllStations();
 
         [OperationContract]

@@ -55,7 +55,7 @@ namespace ProxyCache
     }
 
 
-    //Data defined as in the JCDecaux API
+    //Data defined as in the JCDecaux API return
 
     [DataContract]
     public class Position
