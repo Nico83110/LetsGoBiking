@@ -40,8 +40,10 @@ namespace ProxyCache
                 HttpResponseMessage response = await client.GetAsync(request);
                 response.EnsureSuccessStatusCode();
                 string returnedBody = await response.Content.ReadAsStringAsync();
-
-                return JsonSerializer.Deserialize<StationModel>(returnedBody);
+                Console.WriteLine("returned body is : " + returnedBody);
+                StationModel parsedStation = JsonSerializer.Deserialize<StationModel>(returnedBody);
+                Console.WriteLine("Parsed station name is : " + parsedStation.contract_name);
+                return parsedStation;
             }
             catch (HttpRequestException)
             {
@@ -55,7 +57,66 @@ namespace ProxyCache
 
     //Data defined as in the JCDecaux API
 
+    [DataContract]
+    public class Position
+    {
+        [DataMember]
+        public float latitude { get; set; }
+        [DataMember]
+        public float longitude { get; set; }
+        public override string ToString()
+        {
+            return "Latitude: " + latitude + " Longitude : " + longitude;
+        }
+    }
 
+    [DataContract]
+    public class StationModel
+    {
+        [DataMember]
+        public int number { get; set; }
+        [DataMember]
+        public string contract_name { get; set; }
+        [DataMember]
+        public string name { get; set; }
+        [DataMember]
+        public string address { get; set; }
+        [DataMember]
+        public Position position { get; set; }
+        [DataMember]
+        public object shape { get; set; }
+        [DataMember]
+        public bool banking { get; set; }
+        [DataMember]
+        public bool bonus { get; set; }
+        [DataMember]
+        public int bike_stands { get; set; }
+        [DataMember]
+        public int available_bike_stands { get; set; }
+        [DataMember]
+        public int available_bikes { get; set; }
+        [DataMember]
+        public string status { get; set; }
+        [DataMember]
+        public DateTime last_update { get; set; }
+        [DataMember]
+        public bool connected { get; set; }
+        [DataMember]
+        public bool overflow { get; set; }
+        [DataMember]
+        public int overflow_bike_stands { get; set; }
+        [DataMember]
+        public int overflow_bikes { get; set; }
+
+        //This is used for checking the data received in the client
+        public override string ToString()
+        {
+            return "Contract name: " + contract_name + "\nname: " + name + "\nPosition : " + position;
+        }
+
+    }
+
+    /**Data model as defined on the JCDecaux developer website
     [DataContract]
     public class StationModel
     {
@@ -149,17 +210,6 @@ namespace ProxyCache
     }
 
 
-    public class Position
-    {
-        [DataMember]
-        public float latitude { get; set; }
-        [DataMember]
-        public float longitude { get; set; }
-        public override string ToString()
-        {
-            return "Latitude: " + latitude + " Longitude : " + longitude;
-        }
-    }
 
     public class Stands
     {
@@ -184,6 +234,7 @@ namespace ProxyCache
         [DataMember]
         public int electrical_removable_battery_bikes { get; set; }
     }
+    **/
 
 
 
