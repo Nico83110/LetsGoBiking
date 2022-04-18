@@ -60,6 +60,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExternalCalls\OpenStreetMap.cs" />
     <Compile Include="ExternalCalls\ProxyCall.cs" />
     <Compile Include="StartPoint.cs" />
     <Compile Include="ExternalCalls\JCDecauxAPI.cs" />
