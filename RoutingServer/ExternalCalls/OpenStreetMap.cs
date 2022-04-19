@@ -12,7 +12,7 @@ using System.Device.Location;
 
 namespace RoutingServer.ExternalCalls
 {
-    internal class OpenStreetMap
+    public class OpenStreetMap
     {
         private static HttpClient client = new HttpClient();
 
@@ -44,26 +44,28 @@ namespace RoutingServer.ExternalCalls
         }
         public async Task<List<Place>> GetPlacesNearAdress(string address)
         {
-            string req = "https://nominatim.openstreetmap.org/search?format=json&q=" + address;
+            Console.WriteLine("openstreetmap..." + address);
+            string req = "https://nominatim.openstreetmap.org/search?email=nicolas.perrin@etu.unice.fr&format=json&q=" + address; //TODO : Add e-mail to not be blocked
             try
             {
+                Console.WriteLine(req);
                 HttpResponseMessage response = await client.GetAsync(req);
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
-
-                return JsonSerializer.Deserialize<List<Place>>(body);
+                Console.WriteLine("Body is : " + body);
+                return JsonSerializer.Deserialize<List<Place>>(body); //TODO : Fix this line not deserialized
+                Console.WriteLine("Body successfully deserialized !");
             }
             catch (HttpRequestException)
             {
-                return null;
+                throw new HttpRequestException();
             }
         }
 
         public StationModel GetNearestStationFromPosition(Position p)
         {
             StationModel result = new StationModel();
-            RoutingServerService rss = new RoutingServerService();
-            List<StationModel> allStations = rss.GetAllStations();
+            List<StationModel> allStations = RoutingServerService.allStations;
             GeoCoordinate currentGeoP = new GeoCoordinate(p.latitude, p.longitude);
             double distance = 100000000000; //No distance should be superior to that hopefully
 
@@ -95,7 +97,6 @@ namespace RoutingServer.ExternalCalls
         [DataMember]
         public string lat { get; set; }
         [DataMember]
-
         public string lon { get; set; }
 
     }

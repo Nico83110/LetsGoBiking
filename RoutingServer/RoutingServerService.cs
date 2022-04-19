@@ -15,6 +15,9 @@ namespace RoutingServer
     {
         private static JCDecauxAPI jCDecauxAPI = new JCDecauxAPI();
         private static ProxyCall proxy = new ProxyCall();
+        private static OpenStreetMap openStreetMap = new OpenStreetMap();
+
+        public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
 
         public List<StationModel> GetAllStations()
         {
@@ -39,6 +42,13 @@ namespace RoutingServer
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public StationModel GetNearestStationFromAddress(string address)
+        {
+            Position p = openStreetMap.GetPositionOfAddress(address);
+            StationModel result = openStreetMap.GetNearestStationFromPosition(p);
+            return result;
         }
     }
 }

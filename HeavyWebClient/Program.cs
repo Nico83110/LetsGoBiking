@@ -23,13 +23,18 @@ namespace HeavyWebClient
             ChannelFactory<IRoutingServerService> myChannelFactory = new ChannelFactory<IRoutingServerService>(binding, endpoint);
             IRoutingServerService wcfClient = myChannelFactory.CreateChannel();
 
-            
+            /**
             List<StationModel> stations = wcfClient.GetAllStations();
             Console.WriteLine("Voici le contenu de toutes les stations JCDecaux : ");
             foreach(StationModel station in stations)
             {
                 Console.WriteLine(station.ToString());
             }
+            **/
+
+            StationModel station = wcfClient.GetNearestStationFromAddress("Marseille");
+            Console.WriteLine("Voici la station la plus proche de Marseille : ");
+            Console.WriteLine(station.ToString());
         }
     }
 }

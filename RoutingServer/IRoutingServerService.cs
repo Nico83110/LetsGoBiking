@@ -24,6 +24,10 @@ namespace RoutingServer
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract]
+        [WebGet]
+        StationModel GetNearestStationFromAddress(string address);
+
         // TODO: ajoutez vos opérations de service ici
     }
 
