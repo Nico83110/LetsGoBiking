@@ -47,6 +47,7 @@ namespace RoutingServer
         public StationModel GetNearestStationFromAddress(string address)
         {
             Position p = openStreetMap.GetPositionOfAddress(address);
+            Console.WriteLine("Position of address is " + p.ToString());
             StationModel result = openStreetMap.GetNearestStationFromPosition(p);
             return result;
         }

@@ -22,7 +22,11 @@ namespace RoutingServer.ExternalCalls
         public Position GetPositionOfAddress(string address)
         {
             List<Place> places = GetPlacesNearAdress(address).Result;
-            float score = 0;
+            foreach(Place place in places)
+            {
+                Console.WriteLine(place.lat + " " + place.lon);
+            }
+            double score = 0;
             Place nearestPlace = null;
 
             foreach(Place place in places)
@@ -34,12 +38,14 @@ namespace RoutingServer.ExternalCalls
                 }
             }
 
+            Console.WriteLine("Reached end of the function");
+
             Position result = new Position
             {
-                latitude = float.Parse(nearestPlace.lat),
-                longitude = float.Parse(nearestPlace.lon)
+                latitude = ((float)double.Parse(nearestPlace.lat, new System.Globalization.CultureInfo("en-US"))),
+                longitude = ((float)double.Parse(nearestPlace.lon, new System.Globalization.CultureInfo("en-US")))
             };
-
+ 
             return result;
         }
         public async Task<List<Place>> GetPlacesNearAdress(string address)
@@ -52,9 +58,8 @@ namespace RoutingServer.ExternalCalls
                 HttpResponseMessage response = await client.GetAsync(req);
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Body is : " + body);
+                //Console.WriteLine("Body is : " + body);
                 return JsonSerializer.Deserialize<List<Place>>(body); //TODO : Fix this line not deserialized
-                Console.WriteLine("Body successfully deserialized !");
             }
             catch (HttpRequestException)
             {
@@ -93,7 +98,7 @@ namespace RoutingServer.ExternalCalls
         }
 
         [DataMember]
-        public float importance { get; set; }
+        public double importance { get; set; }
         [DataMember]
         public string lat { get; set; }
         [DataMember]
