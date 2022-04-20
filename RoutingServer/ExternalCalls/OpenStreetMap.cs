@@ -38,8 +38,6 @@ namespace RoutingServer.ExternalCalls
                 }
             }
 
-            Console.WriteLine("Reached end of the function");
-
             Position result = new Position
             {
                 latitude = ((float)double.Parse(nearestPlace.lat, new System.Globalization.CultureInfo("en-US"))),

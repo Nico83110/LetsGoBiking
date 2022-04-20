@@ -33,7 +33,7 @@ namespace HeavyWebClient
             **/
 
             StationModel station = wcfClient.GetNearestStationFromAddress("156 Boulevard Napoleon III 06200 Nice");
-            Console.WriteLine("Voici la station la plus proche de Marseille : ");
+            Console.WriteLine("Voici la station la plus proche de Nice : ");
             Console.WriteLine(station.ToString());
         }
     }
