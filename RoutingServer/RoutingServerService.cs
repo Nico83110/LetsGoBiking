@@ -16,6 +16,7 @@ namespace RoutingServer
         private static JCDecauxAPI jCDecauxAPI = new JCDecauxAPI();
         private static ProxyCall proxy = new ProxyCall();
         private static OpenStreetMap openStreetMap = new OpenStreetMap();
+        private static OpenRouteServiceAPI openRouteServiceAPI = new OpenRouteServiceAPI();
 
         public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
 
@@ -31,6 +32,7 @@ namespace RoutingServer
             return station;
         }
 
+        /**
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)
@@ -43,6 +45,12 @@ namespace RoutingServer
             }
             return composite;
         }
+        **/
+
+        public Position GetPositionOfAddress(string address)
+        {
+            return openStreetMap.GetPositionOfAddress(address);
+        }
 
         public StationModel GetNearestStationFromAddress(string address)
         {
@@ -50,6 +58,30 @@ namespace RoutingServer
             Console.WriteLine("Position of address is " + p.ToString());
             StationModel result = openStreetMap.GetNearestStationFromPosition(p);
             return result;
+        }
+
+        public List<String> GetDirections(Position[] positions)
+        {
+            return openRouteServiceAPI.GetDirections(positions);
+        }
+
+        public List<String> GetPaths(string startAddress, string endAddress)
+        {
+            Position p1 = GetPositionOfAddress(startAddress);
+            Position p2 = GetNearestStationFromAddress(startAddress).position;
+            Position p3 = GetNearestStationFromAddress(endAddress).position;
+            Position p4 = GetPositionOfAddress(endAddress);
+
+            Position[] positions = new Position[4];
+            positions[0] = p1;
+            positions[1] = p2;
+            positions[2] = p3;
+            positions[3] = p4;
+
+            List<String> paths = openRouteServiceAPI.GetDirections(positions);
+            return paths;
+
+            return null;
         }
     }
 }

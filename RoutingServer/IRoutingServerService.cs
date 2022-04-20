@@ -21,12 +21,26 @@ namespace RoutingServer
         //[WebInvoke(Method = "GET", UriTemplate = "station?city={city}&number={station_number}")]
         StationModel GetSpecificStation(string city, string station_number);
 
+        /**
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
+        **/
+
+        [OperationContract]
+        [WebGet]
+        Position GetPositionOfAddress(string address);
 
         [OperationContract]
         [WebGet]
         StationModel GetNearestStationFromAddress(string address);
+
+        [OperationContract]
+        [WebGet]
+        List<String> GetDirections(Position[] positions);
+
+        [OperationContract]
+        [WebGet]
+        List<String> GetPaths(string startAddress, string endAddress);
 
         // TODO: ajoutez vos opérations de service ici
     }

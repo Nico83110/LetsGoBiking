@@ -24,6 +24,7 @@ namespace HeavyWebClient
             IRoutingServerService wcfClient = myChannelFactory.CreateChannel();
 
             /**
+             * PRINT ALL STATIONS
             List<StationModel> stations = wcfClient.GetAllStations();
             Console.WriteLine("Voici le contenu de toutes les stations JCDecaux : ");
             foreach(StationModel station in stations)
@@ -32,9 +33,9 @@ namespace HeavyWebClient
             }
             **/
 
-            StationModel station = wcfClient.GetNearestStationFromAddress("156 Boulevard Napoleon III 06200 Nice");
-            Console.WriteLine("Voici la station la plus proche de Nice : ");
-            Console.WriteLine(station.ToString());
+            List<String> paths = wcfClient.GetPaths("2 Rue Marc Donadille, 13013 Marseille", "3 Boulevard Michelet, 13008 Marseille");
+            Console.WriteLine("Voici le premier chemin à emprunter : ");
+            Console.WriteLine(paths[0]);
         }
     }
 }
