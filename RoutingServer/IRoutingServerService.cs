@@ -40,7 +40,7 @@ namespace RoutingServer
 
         [OperationContract]
         [WebGet]
-        List<String> GetPaths(string startAddress, string endAddress);
+        List<PathModel> GetPaths(string startAddress, string endAddress);
 
         // TODO: ajoutez vos opérations de service ici
     }

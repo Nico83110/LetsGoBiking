@@ -33,9 +33,30 @@ namespace HeavyWebClient
             }
             **/
 
-            List<String> paths = wcfClient.GetPaths("2 Rue Marc Donadille, 13013 Marseille", "3 Boulevard Michelet, 13008 Marseille");
-            Console.WriteLine("Voici le premier chemin à emprunter : ");
-            Console.WriteLine(paths[0]);
+            List<PathModel> paths = wcfClient.GetPaths("2 Rue Marc Donadille, 13013 Marseille", "3 Boulevard Michelet, 13008 Marseille");
+            Console.WriteLine("Voici le premier chemin à emprunter à pied : ");
+            PrintInstructions(paths[0]);
+            Console.WriteLine(" ");
+            Console.WriteLine("Vous arrivez ici à la station JCDecaux de départ. Voici le chemin à vélo à suivre : ");
+            PrintInstructions(paths[1]);
+            Console.WriteLine(" ");
+            Console.WriteLine("Vous arrivez ici à la station JCDecaux de fin. Voici le chemin à pied à suivre : ");
+            PrintInstructions(paths[2]);
+        }
+
+        public static void PrintInstructions(PathModel path)
+        {
+            //Console.ResetColor();
+            foreach (Route route in path.routes)
+            {
+                foreach (Segment segment in route.segments)
+                {
+                    foreach (Step step in segment.steps)
+                    {
+                        Console.WriteLine(step.instruction);
+                    }
+                }
+            }
         }
     }
 }

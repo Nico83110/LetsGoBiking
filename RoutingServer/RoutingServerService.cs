@@ -7,6 +7,7 @@ using System.Text;
 using ProxyCache;
 using RoutingServer.ExternalCalls;
 using System.ServiceModel.Web;
+using System.Text.Json;
 
 namespace RoutingServer
 {
@@ -65,7 +66,7 @@ namespace RoutingServer
             return openRouteServiceAPI.GetDirections(positions);
         }
 
-        public List<String> GetPaths(string startAddress, string endAddress)
+        public List<PathModel> GetPaths(string startAddress, string endAddress)
         {
             Position p1 = GetPositionOfAddress(startAddress);
             Position p2 = GetNearestStationFromAddress(startAddress).position;
@@ -77,10 +78,18 @@ namespace RoutingServer
             positions[1] = p2;
             positions[2] = p3;
             positions[3] = p4;
-
+            
             List<String> paths = openRouteServiceAPI.GetDirections(positions);
-            return paths;
 
+            List<PathModel> result = new List<PathModel>(3);
+            //Console.WriteLine("Before the PathModel parsing");
+            for(int i=0; i<3; i++)
+            {
+                result.Add(JsonSerializer.Deserialize<PathModel>(paths[i]));
+            }
+            
+            return result;
         }
+
     }
 }

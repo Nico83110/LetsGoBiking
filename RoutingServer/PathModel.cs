@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace RoutingServer
 {
-    internal class PathModel
-    {
-    }
 
-
-    public class Rootobject
+    public class PathModel
     {
-        public Route[] routes { get; set; }
-        public float[] bbox { get; set; }
+        public List<Route> routes { get; set; }
+        public List<float> bbox { get; set; }
         public Metadata metadata { get; set; }
     }
 
@@ -29,7 +25,7 @@ namespace RoutingServer
 
     public class Query
     {
-        public float[][] coordinates { get; set; }
+        public List<List<float>> coordinates { get; set; }
         public string profile { get; set; }
         public string preference { get; set; }
         public string format { get; set; }
@@ -48,10 +44,10 @@ namespace RoutingServer
     public class Route
     {
         public Summary summary { get; set; }
-        public Segment[] segments { get; set; }
-        public float[] bbox { get; set; }
+        public List<Segment> segments { get; set; }
+        public List<float> bbox { get; set; }
         public string geometry { get; set; }
-        public int[] way_points { get; set; }
+        public List<int> way_points { get; set; }
     }
 
     public class Summary
@@ -64,7 +60,7 @@ namespace RoutingServer
     {
         public float distance { get; set; }
         public float duration { get; set; }
-        public Step[] steps { get; set; }
+        public List<Step> steps { get; set; }
     }
 
     public class Step
@@ -74,7 +70,7 @@ namespace RoutingServer
         public int type { get; set; }
         public string instruction { get; set; }
         public string name { get; set; }
-        public int[] way_points { get; set; }
+        public List<int> way_points { get; set; }
         public int exit_number { get; set; }
     }
 
