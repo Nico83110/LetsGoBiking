@@ -81,7 +81,6 @@ namespace RoutingServer
             List<String> paths = openRouteServiceAPI.GetDirections(positions);
             return paths;
 
-            return null;
         }
     }
 }

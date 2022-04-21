@@ -62,23 +62,23 @@ namespace RoutingServer.ExternalCalls
             postBody1 = "{\"coordinates\":[" + "[" + startPos.longitude.ToString().Replace(",", ".") + "," + startPos.latitude.ToString().Replace(",", ".") + "],"
                 + "[" + nearestStation.longitude.ToString().Replace(",", ".") + "," + nearestStation.latitude.ToString().Replace(",", ".") + "],";
             postBody1 += additionals;
-            //string fromStartPosToNearestStationPath = CallDirectionsServicePOST(uri, postBody).Result;
-            postBody1.Replace("],],", "]],");
+            postBody1 = postBody1.Replace("],],", "]],");
 
             /** Second Path Query Preparation **/
             postBody2 = "{\"coordinates\":[" + "[" + nearestStation.longitude.ToString().Replace(",", ".") + "," + nearestStation.latitude.ToString().Replace(",", ".") + "],"
                 + "[" + endStation.longitude.ToString().Replace(",", ".") + "," + endStation.latitude.ToString().Replace(",", ".") + "],";
             postBody2 += additionals;
-            //string fromNearestStationToEndStationPath = CallDirectionsServicePOST(uri, postBody).Result;
-            postBody2.Replace("],],", "]],");
+            postBody2 = postBody2.Replace("],],", "]],");
 
             /** Third Path Query Preparation **/
             postBody3 = "{\"coordinates\":[" + "[" + endStation.longitude.ToString().Replace(",", ".") + "," + endStation.latitude.ToString().Replace(",", ".") + "],"
                 + "[" + endPos.longitude.ToString().Replace(",", ".") + "," + endPos.latitude.ToString().Replace(",", ".") + "],";
             postBody3 += additionals;
-            //string fromNearestStationToEndStationPath = CallDirectionsServicePOST(uri, postBody).Result;
-            postBody3.Replace("],],", "]],");
+            postBody3 = postBody3.Replace("],],", "]],");
 
+            Console.WriteLine("Request is : " + postBody1);
+
+            //TODO : Fix calls under that
             string firstPath = CallDirectionsServicePOST(uri + "foot-walking", postBody1).Result;
             string secondPath = CallDirectionsServicePOST(uri + "cycling-regular", postBody2).Result;
             string thirdPath = CallDirectionsServicePOST(uri + "foot-walking", postBody3).Result;
