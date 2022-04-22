@@ -18,7 +18,7 @@ namespace RoutingServer
         List<StationModel> GetAllStations();
 
         [OperationContract]
-        //[WebInvoke(Method = "GET", UriTemplate = "station?city={city}&number={station_number}")]
+        [WebGet(UriTemplate = "station?city={city}&number={station_number}")]
         StationModel GetSpecificStation(string city, string station_number);
 
         /**
@@ -27,19 +27,19 @@ namespace RoutingServer
         **/
 
         [OperationContract]
-        [WebGet]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "position?address={address}")]
         Position GetPositionOfAddress(string address);
 
         [OperationContract]
-        [WebGet]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         StationModel GetNearestStationFromAddress(string address);
 
         [OperationContract]
-        [WebGet]
-        List<String> GetDirections(Position[] positions);
+        //[WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        List <String> GetDirections(Position[] positions);
 
         [OperationContract]
-        [WebGet]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "address?start={startAddress}&end={endAddress}")]
         List<PathModel> GetPaths(string startAddress, string endAddress);
 
         // TODO: ajoutez vos opérations de service ici

@@ -88,9 +88,6 @@ namespace RoutingServer.ExternalCalls
             paths.Add(secondPath);
             paths.Add(thirdPath);
 
-            Console.WriteLine("Voici le premier chemin à emprunter : ");
-            Console.WriteLine(firstPath);
-
             return paths;
         }
 

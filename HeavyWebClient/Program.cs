@@ -11,7 +11,7 @@ namespace HeavyWebClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello from the Heavy Client !");
+            Console.WriteLine("Bienvenue dans le client lourd de LetsGoBiking !");
 
             //Default ReceivedMessageSize was not sufficient and created an error...
             BasicHttpBinding binding = new BasicHttpBinding
@@ -33,14 +33,23 @@ namespace HeavyWebClient
             }
             **/
 
-            List<PathModel> paths = wcfClient.GetPaths("2 Rue Marc Donadille, 13013 Marseille", "3 Boulevard Michelet, 13008 Marseille");
+            string startAddress = "2 Rue Marc Donadille, 13013 Marseille";
+            string endAddress = "3 Boulevard Michelet, 13008 Marseille";
+
+            Console.WriteLine("Calcul en cours de l'itinéraire de '" + startAddress + "' vers '" + endAddress + "' ...");
+            Console.WriteLine("\n\n");
+
+            List<PathModel> paths = wcfClient.GetPaths(startAddress, endAddress);
             Console.WriteLine("Voici le premier chemin à emprunter à pied : ");
+            Console.WriteLine("");
             PrintInstructions(paths[0]);
-            Console.WriteLine(" ");
+            Console.WriteLine("\n");
             Console.WriteLine("Vous arrivez ici à la station JCDecaux de départ. Voici le chemin à vélo à suivre : ");
+            Console.WriteLine("");
             PrintInstructions(paths[1]);
-            Console.WriteLine(" ");
+            Console.WriteLine("\n");
             Console.WriteLine("Vous arrivez ici à la station JCDecaux de fin. Voici le chemin à pied à suivre : ");
+            Console.WriteLine("");
             PrintInstructions(paths[2]);
         }
 
