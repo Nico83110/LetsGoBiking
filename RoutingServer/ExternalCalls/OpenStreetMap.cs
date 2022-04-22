@@ -48,7 +48,6 @@ namespace RoutingServer.ExternalCalls
         }
         public async Task<List<Place>> GetPlacesNearAdress(string address)
         {
-            Console.WriteLine("openstreetmap..." + address);
             string req = "https://nominatim.openstreetmap.org/search?email=nicolas.perrin@etu.unice.fr&format=json&q=" + address; //TODO : Add e-mail to not be blocked
             try
             {

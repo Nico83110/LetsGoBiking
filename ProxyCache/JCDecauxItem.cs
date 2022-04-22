@@ -5,7 +5,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System;
 
-
 namespace ProxyCache
 {
     [DataContract]
@@ -30,7 +29,9 @@ namespace ProxyCache
         public JCDecauxItem(Dictionary<string, string> infos)
         {
             request = url + path + "/" + infos["station_number"] + "?contract=" + infos["contract_name"] + "&apiKey=" + API_key;
+            Console.WriteLine("Creating JCDecaux Item, with request : " + request);
             station = CallREST(request).Result;
+            Console.WriteLine("Called JCDecaux request...");
         }
 
         private static async Task<StationModel> CallREST(string request)
@@ -41,9 +42,7 @@ namespace ProxyCache
                 response.EnsureSuccessStatusCode();
                 string returnedBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("returned body is : " + returnedBody);
-                StationModel parsedStation = JsonSerializer.Deserialize<StationModel>(returnedBody);
-                Console.WriteLine("Parsed station name is : " + parsedStation.contract_name);
-                return parsedStation;
+                return JsonSerializer.Deserialize<StationModel>(returnedBody); //TODO : Program stops here...
             }
             catch (HttpRequestException)
             {

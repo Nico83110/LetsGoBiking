@@ -20,7 +20,7 @@ namespace RoutingServer.ExternalCalls
         public async Task<JCDecauxItem> GetStationInfos(string contract_name, string stationNumber)
         {
             //TODO : Update the ProxyCache config to manage this request
-            string request = "http://localhost:8733/ProxyCache/Service1/station?city=" + contract_name + "&number=" + stationNumber;
+            string request = "http://localhost:8733/ProxyCache/api/station?city=" + contract_name + "&number=" + stationNumber;
             Console.WriteLine("GetStationInfos() generated request is : " + request);
             return await GetStationInfos(request);
         }
@@ -30,9 +30,10 @@ namespace RoutingServer.ExternalCalls
             try
             {
                 HttpResponseMessage response = await client.GetAsync(request);
-                response.EnsureSuccessStatusCode();
-                string body = await response.Content.ReadAsStringAsync();
 
+               // response.EnsureSuccessStatusCode();
+                string body = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("PROXY CALL : " + body);
                 return JsonSerializer.Deserialize<JCDecauxItem>(body);
             }
             catch (HttpRequestException)

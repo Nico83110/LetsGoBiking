@@ -18,7 +18,7 @@ namespace RoutingServer
         List<StationModel> GetAllStations();
 
         [OperationContract]
-        [WebGet(UriTemplate = "station?city={city}&number={station_number}")]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "station?city={city}&number={station_number}")]
         StationModel GetSpecificStation(string city, string station_number);
 
         /**

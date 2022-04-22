@@ -70,3 +70,5 @@ C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\bin\Debug
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\bin\Debug\en\Microsoft.VisualStudio.ImageCatalog.resources.dll
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\obj\Debug\ProxyCache.exe.config
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\obj\Debug\ProxyCache.csproj.AssemblyReference.cache
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\ProxyCache\bin\Debug\Newtonsoft.Json.xml

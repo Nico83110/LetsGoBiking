@@ -12,7 +12,7 @@ namespace ProxyCache
     public interface IJCDecauxService
     {
         [OperationContract]
-        [WebGet(UriTemplate = "station?city={city}&number={station_number}")]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "station?city={city}&number={station_number}")]
         JCDecauxItem GetStationDefault(string city, string station_number);
 
         [OperationContract]
