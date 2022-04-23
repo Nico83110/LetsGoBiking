@@ -46,7 +46,7 @@ namespace RoutingServer.ExternalCalls
         /* positions has to respectively contain the start address, nearest bike station, end bike station, end address
          The result is a list containing respectively the three paths (walking, cycling, walking) to take.
          */
-        public List<String> GetDirections(Position[] positions)
+        public List<String> GetDirections(Position[] positions, bool asGeoJSON)
         {
                 Position startPos = positions[0];
                 Position nearestStation = positions[1];
@@ -76,12 +76,12 @@ namespace RoutingServer.ExternalCalls
             postBody3 += additionals;
             postBody3 = postBody3.Replace("],],", "]],");
 
-            Console.WriteLine("Request is : " + postBody1);
+            Console.WriteLine("Request url is : " + uri + "\n and body is : " + postBody1);
 
             //TODO : Fix calls under that
-            string firstPath = CallDirectionsServicePOST(uri + "foot-walking", postBody1).Result;
-            string secondPath = CallDirectionsServicePOST(uri + "cycling-regular", postBody2).Result;
-            string thirdPath = CallDirectionsServicePOST(uri + "foot-walking", postBody3).Result;
+            string firstPath = CallDirectionsServicePOST(uri + "foot-walking" + (asGeoJSON ? "/geojson" : ""), postBody1).Result;
+            string secondPath = CallDirectionsServicePOST(uri + "cycling-regular" + (asGeoJSON ? "/geojson" : ""), postBody2).Result;
+            string thirdPath = CallDirectionsServicePOST(uri + "foot-walking" + (asGeoJSON ? "/geojson" : ""), postBody3).Result;
 
             List<String> paths = new List<string>();
             paths.Add(firstPath);

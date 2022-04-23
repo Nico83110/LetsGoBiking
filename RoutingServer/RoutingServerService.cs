@@ -68,7 +68,7 @@ namespace RoutingServer
 
         public List<String> GetDirections(Position[] positions)
         {
-            return openRouteServiceAPI.GetDirections(positions);
+            return openRouteServiceAPI.GetDirections(positions, false);
         }
 
         public List<PathModel> GetPaths(string startAddress, string endAddress)
@@ -84,7 +84,7 @@ namespace RoutingServer
             positions[2] = p3;
             positions[3] = p4;
             
-            List<String> paths = openRouteServiceAPI.GetDirections(positions);
+            List<String> paths = openRouteServiceAPI.GetDirections(positions, false);
 
             List<PathModel> result = new List<PathModel>(3);
             //Console.WriteLine("Before the PathModel parsing");
@@ -92,7 +92,34 @@ namespace RoutingServer
             {
                 result.Add(JsonSerializer.Deserialize<PathModel>(paths[i]));
             }
+
             
+            return result;
+        }
+
+        public List<GeoJSONModel> GetPathsAsGeoJSON(string startAddress, string endAddress)
+        {
+            Position p1 = GetPositionOfAddress(startAddress);
+            Position p2 = GetNearestStationFromAddress(startAddress).position;
+            Position p3 = GetNearestStationFromAddress(endAddress).position;
+            Position p4 = GetPositionOfAddress(endAddress);
+
+            Position[] positions = new Position[4];
+            positions[0] = p1;
+            positions[1] = p2;
+            positions[2] = p3;
+            positions[3] = p4;
+
+            List<String> paths = openRouteServiceAPI.GetDirections(positions, true);
+
+            List<GeoJSONModel> result = new List<GeoJSONModel>(3);
+            //Console.WriteLine("Before the PathModel parsing");
+            for (int i = 0; i < 3; i++)
+            {
+                result.Add(JsonSerializer.Deserialize<GeoJSONModel>(paths[i]));
+            }
+
+
             return result;
         }
 

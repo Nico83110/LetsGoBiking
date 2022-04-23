@@ -61,6 +61,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExternalCalls\GeoJSONModel.cs" />
     <Compile Include="PathModel.cs" />
     <Compile Include="ExternalCalls\OpenRouteServiceAPI.cs" />
     <Compile Include="ExternalCalls\OpenStreetMap.cs" />

@@ -42,6 +42,10 @@ namespace RoutingServer
         [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "address?start={startAddress}&end={endAddress}")]
         List<PathModel> GetPaths(string startAddress, string endAddress);
 
+        [OperationContract]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "geojson/address?start={startAddress}&end={endAddress}")]
+        List<GeoJSONModel> GetPathsAsGeoJSON(string startAddress, string endAddress);
+
         // TODO: ajoutez vos opérations de service ici
     }
 
