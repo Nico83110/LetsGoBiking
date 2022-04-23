@@ -15,7 +15,7 @@
         </span>
     </nav>
 
-    <form>
+    <form onsubmit="callGetPath()" id="addressesForm">
         <div class="form-group">
             <label for="exampleInputEmail1">Addresse de départ</label>
             <input type="text" class="form-control" id="startAddress" placeholder="D'où partez vous ?">
@@ -25,7 +25,7 @@
             <input type="text" class="form-control" id="endAddress" placeholder="Où allez-vous ?">
         </div>
 
-        <button type="submit" class="btn btn-primary">Obtenir l'itinéraire</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Obtenir l'itinéraire</button>
     </form>
 
     <div id="map" style="width: 1500px; height: 730px;"></div>
@@ -82,6 +82,28 @@
             source: source,
             style: [lineStyle]
         });
+
+        var form = document.getElementById("addressesForm");
+        function handleForm(event) { event.preventDefault(); }
+        form.addEventListener('submit', handleForm);
+
+        //var startAddress = "2 Rue Marc Donadille, 13013 Marseille";
+        //var endAddress = "3 Boulevard Michelet, 13008 Marseille";
+
+        var startAddress = document.getElementById("startAddress").value;
+        var endAddress = document.getElementById("endAddress").value;
+
+
+        function callGetPath() {
+            uri = 'http://localhost:8733/api/address?start='
+                + document.getElementById("startAddress").value
+                + '&end='
+                + document.getElementById("endAddress").value;
+            fetch(uri, { method: 'GET' })
+                .then(response => response.json())
+                .then(json => console.log(json));
+        }
+
 
         map.addLayer(vector);
     </script>

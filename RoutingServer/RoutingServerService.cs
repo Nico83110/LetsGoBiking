@@ -22,6 +22,11 @@ namespace RoutingServer
 
         public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
 
+        public RoutingServerService() {
+            //To fix CORS policy error in browser request
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+        }
+
         public List<StationModel> GetAllStations()
         {
             return jCDecauxAPI.GetStations().Result;
