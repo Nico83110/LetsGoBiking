@@ -3,11 +3,32 @@
 <head>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Welcome to the JCDecaux path finder !</title>
 </head>
 <body>
-    <div id="map" style="width: 600px; height: 400px;"></div>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">
+            <img src="res/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Let's go biking
+        </span>
+    </nav>
+
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Addresse de départ</label>
+            <input type="text" class="form-control" id="startAddress" placeholder="D'où partez vous ?">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Addresse de destination</label>
+            <input type="text" class="form-control" id="endAddress" placeholder="Où allez-vous ?">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Obtenir l'itinéraire</button>
+    </form>
+
+    <div id="map" style="width: 1500px; height: 730px;"></div>
 
     <script src="js/scripts.js"></script>
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
