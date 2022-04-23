@@ -14,7 +14,7 @@ namespace RoutingServer
     public interface IRoutingServerService
     {
         [OperationContract]
-        [WebGet]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "getAllStations")]
         List<StationModel> GetAllStations();
 
         [OperationContract]
