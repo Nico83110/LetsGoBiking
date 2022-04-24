@@ -46,7 +46,7 @@
             ],
 
             view: new ol.View({
-                center: ol.proj.fromLonLat([7.0985774, 43.6365619]), // <-- Those are the GPS coordinates to center the map to.
+                center: ol.proj.fromLonLat([5.394495, 43.304042]), // <-- Those are the GPS coordinates to center the map to.
                 zoom: 10 // You can adjust the default zoom.
             })
 
@@ -70,7 +70,30 @@
                 + document.getElementById("endAddress").value;
             fetch(uri, { method: 'GET' })
                 .then(response => response.json())
-                .then(json => drawLineFromGeoJSON(json));
+                .then(function(json) {
+                    drawLineFromGeoJSON(json);
+                    startPointCoord = json[0].features[0].geometry.coordinates[0];
+                    endPointCoord = json[2].features[0].geometry.coordinates[json[2].features[0].geometry.coordinates.length - 1];
+                    addMarkerToMap(startPointCoord[0], startPointCoord[1]);
+                    addMarkerToMap(endPointCoord[0], endPointCoord[1]);
+                } );
+        }
+
+        function addMarkerToMap(lon, lat) {
+            console.log('Longitude and latitude for marker are : ' + lon + " " + lat);
+            var markers = new ol.layer.Vector({
+                source: new ol.source.Vector(),
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'res/marker.png'
+                    })
+                })
+            });
+            map.addLayer(markers);
+
+            var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([lon, lat])));
+            markers.getSource().addFeature(marker);
         }
 
         function drawLineFromGeoJSON(json) {
