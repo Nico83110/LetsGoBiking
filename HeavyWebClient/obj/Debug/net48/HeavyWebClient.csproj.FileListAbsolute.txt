@@ -26,5 +26,5 @@ C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\D
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net48\HeavyWebClient.csproj.CopyComplete
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net48\HeavyWebClient.exe
 C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\obj\Debug\net48\HeavyWebClient.pdb
-C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net48\System.Memory.xml
-C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net48\System.Buffers.xml
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net48\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Nicolas PERRIN\source\repos\Nico83110\LetsGoBiking\HeavyWebClient\bin\Debug\net48\System.Runtime.CompilerServices.Unsafe.xml

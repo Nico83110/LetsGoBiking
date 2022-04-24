@@ -18,7 +18,7 @@ namespace ProxyCache
         private static readonly HttpClient client = new HttpClient();
 
         [DataMember]
-        public StationModel station { get; set; }
+        public string station { get; set; }
 
         public JCDecauxItem()
         {
@@ -34,7 +34,7 @@ namespace ProxyCache
             Console.WriteLine("Called JCDecaux request...");
         }
 
-        private static async Task<StationModel> CallREST(string request)
+        private static async Task<string> CallREST(string request)
         {
             try
             {
@@ -42,11 +42,13 @@ namespace ProxyCache
                 response.EnsureSuccessStatusCode();
                 string returnedBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("returned body is : " + returnedBody);
-                return JsonSerializer.Deserialize<StationModel>(returnedBody); //TODO : Program stops here...
+                //StationModel result = JsonSerializer.Deserialize<StationModel>(returnedBody); //TODO : Program stops here...
+                //Console.WriteLine("Station has been parsed, with the name : " + result.contract_name);
+                return returnedBody;
             }
             catch (HttpRequestException)
             {
-                return new StationModel();
+                return "";
             }
         }
 

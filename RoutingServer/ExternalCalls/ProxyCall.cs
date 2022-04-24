@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.ServiceModel;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -17,12 +18,26 @@ namespace RoutingServer.ExternalCalls
         {
         }
 
-        public async Task<JCDecauxItem> GetStationInfos(string contract_name, string stationNumber)
+        public JCDecauxItem GetStationInfos(string contract_name, string stationNumber)
         {
+            /** REST CALL 
             //TODO : Update the ProxyCache config to manage this request
             string request = "http://localhost:8733/ProxyCache/api/station?city=" + contract_name + "&number=" + stationNumber;
             Console.WriteLine("GetStationInfos() generated request is : " + request);
             return await GetStationInfos(request);
+            **/
+
+            /** SOAP call **/
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                MaxBufferSize = 2000000,
+                MaxReceivedMessageSize = 2000000
+            };
+            EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/ProxyCache/Service1/");
+            ChannelFactory<IJCDecauxService> myChannelFactory = new ChannelFactory<IJCDecauxService>(binding, endpoint);
+            IJCDecauxService wcfClient = myChannelFactory.CreateChannel();
+            JCDecauxItem result = wcfClient.GetStationDefault(contract_name, stationNumber);
+            return result;
         }
 
         public async Task<JCDecauxItem> GetStationInfos(string request)
