@@ -15,6 +15,7 @@ namespace RoutingServer.ExternalCalls
     public class OpenStreetMap
     {
         private static HttpClient client = new HttpClient();
+        private static ProxyCall proxy = new ProxyCall();
 
         public OpenStreetMap()
         {
@@ -73,14 +74,20 @@ namespace RoutingServer.ExternalCalls
 
             foreach(StationModel station in allStations)
             {
+               
                 GeoCoordinate stationGeoP = new GeoCoordinate(station.position.latitude, station.position.longitude);
-
-                if(currentGeoP.GetDistanceTo(stationGeoP) <= distance)
+                if (currentGeoP.GetDistanceTo(stationGeoP) <= distance)
                 {
-                    result = station;
+                    StationModel stationFromCache = JsonSerializer.Deserialize<StationModel>(proxy.GetStationInfos(station.contract_name, station.number.ToString()).station);
+                    result = stationFromCache;
                     distance = currentGeoP.GetDistanceTo(stationGeoP);
+                    RoutingServerService.addToHistory(DateTime.Now, result.number, result.contract_name);
                 }
+
             }
+
+            
+
             return result;
         }
 

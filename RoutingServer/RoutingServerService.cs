@@ -22,6 +22,8 @@ namespace RoutingServer
 
         public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
 
+        public static List<Tuple<DateTime, int, string>> history = new List<Tuple<DateTime, int, string>>();
+
         public RoutingServerService() {
             //To fix CORS policy error in browser request
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
@@ -122,6 +124,12 @@ namespace RoutingServer
 
 
             return result;
+        }
+
+        public static void addToHistory(DateTime dateTime, int stationNumber, string stationName)
+        {
+            Console.WriteLine("Added to logs : " + dateTime + " " + stationNumber + " " + stationName);
+            history.Add(Tuple.Create(dateTime, stationNumber, stationName));
         }
 
     }
