@@ -132,5 +132,10 @@ namespace RoutingServer
             history.Add(Tuple.Create(dateTime, stationNumber, stationName));
         }
 
+        public List<Tuple<DateTime, int, string>> getHistory()
+        {
+            return history;
+        }
+
     }
 }
