@@ -22,7 +22,7 @@ namespace RoutingServer
 
         public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
 
-        public static List<Tuple<DateTime, int, string>> history = new List<Tuple<DateTime, int, string>>();
+        public static List<Tuple<DateTime, int, double>> history = new List<Tuple<DateTime, int, double>>();
 
         public RoutingServerService() {
             //To fix CORS policy error in browser request
@@ -37,7 +37,7 @@ namespace RoutingServer
 
         public StationModel GetSpecificStation(string city, string station_number)
         {
-            Console.WriteLine("Entered into the GetSpecificStation method...");
+            //Console.WriteLine("Entered into the GetSpecificStation method...");
             StationModel station = JsonSerializer.Deserialize<StationModel>(proxy.GetStationInfos(city, station_number).station);
             return station;
         }
@@ -127,13 +127,13 @@ namespace RoutingServer
             return result;
         }
 
-        public static void addToHistory(DateTime dateTime, int stationNumber, string stationName)
+        public static void addToHistory(DateTime dateTime, int stationNumber, double time)
         {
-            Console.WriteLine("Added to logs : " + dateTime + " " + stationNumber + " " + stationName);
-            history.Add(Tuple.Create(dateTime, stationNumber, stationName));
+            Console.WriteLine("Added to logs : " + dateTime + " " + stationNumber + " " + time);
+            history.Add(Tuple.Create(dateTime, stationNumber, time));
         }
 
-        public List<Tuple<DateTime, int, string>> getHistory()
+        public List<Tuple<DateTime, int, double>> getHistory()
         {
             return history;
         }

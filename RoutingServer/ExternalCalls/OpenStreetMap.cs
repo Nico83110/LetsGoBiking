@@ -78,10 +78,18 @@ namespace RoutingServer.ExternalCalls
                 GeoCoordinate stationGeoP = new GeoCoordinate(station.position.latitude, station.position.longitude);
                 if (currentGeoP.GetDistanceTo(stationGeoP) <= distance)
                 {
+                    DateTime start = DateTime.Now;
                     StationModel stationFromCache = JsonSerializer.Deserialize<StationModel>(proxy.GetStationInfos(station.contract_name, station.number.ToString()).station);
+                    DateTime end = DateTime.Now;
+                    TimeSpan ts = (end - start);
+                    Console.WriteLine("The call to the proxy took {0} ms", ts.TotalMilliseconds);
+                    RoutingServerService.addToHistory(DateTime.Now, result.number, ts.TotalMilliseconds);
+
                     result = stationFromCache;
                     distance = currentGeoP.GetDistanceTo(stationGeoP);
-                    RoutingServerService.addToHistory(DateTime.Now, result.number, result.contract_name);
+
+ 
+
                 }
 
             }

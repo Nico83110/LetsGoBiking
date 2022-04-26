@@ -40,13 +40,14 @@ namespace HeavyWebClient
                 Console.Clear();
                 Console.WriteLine("Bienvenue sur le client .Net de Let's Go Biking !");
                 Console.WriteLine("\nChoisissez ce que vous voulez faire :");
-                Console.WriteLine("\t- path : Établir un itinéraire entre 2 adresses avec des vélos si nécessaire");
-                Console.WriteLine("\t- stats : Voir les utilisations des différentes stations de JCDecaux depuis notre serveur");
-                Console.WriteLine("\t- quit : Quitter le client .Net");
+                Console.WriteLine("\t- 1. Obtenir l'itinéraire par étapes avec des vélos si possible");
+                Console.WriteLine("\t- 2. Afficher les statistiques d'utilisation des appels au Proxy/Cache");
+                Console.WriteLine("\t- 3. Quitter l'application .NET");
                 Console.Write("\nChoix : ");
-                choice = Console.ReadLine().ToLower().Trim();
 
-                if (choice.Equals("path"))
+                choice = Console.ReadLine();
+
+                if (choice.Equals("1"))
                 {
                     do
                     {
@@ -77,17 +78,17 @@ namespace HeavyWebClient
                     }
                     while (Console.ReadKey().Key != ConsoleKey.Enter);
                 }
-                else if (choice.Equals("stats"))
+                else if (choice.Equals("2"))
                 {
                     do
                     {
                         Console.WriteLine("Voici les appels faits au cache pour avoir une station : ");
-                        List<Tuple<DateTime, int, string>> history = wcfClient.getHistory();
-                        foreach (Tuple<DateTime, int, string> log in history)
+                        List<Tuple<DateTime, int, double>> history = wcfClient.getHistory();
+                        foreach (Tuple<DateTime, int, double> log in history)
                         {
                             Console.WriteLine(log.Item1);
                             Console.WriteLine(log.Item2);
-                            Console.WriteLine(log.Item3);
+                            Console.WriteLine(log.Item3 + " ms");
                             Console.WriteLine("");
                         }
                     }
@@ -96,7 +97,7 @@ namespace HeavyWebClient
                     //WriteLogs(client);
                     //BackToMainMenu();
                 }
-                else if (choice.Equals("quit"))
+                else if (choice.Equals("3"))
                 {
                     Console.WriteLine("Fermeture ...");
                 }
@@ -130,7 +131,6 @@ namespace HeavyWebClient
 
         public static void PrintInstructions(PathModel path)
         {
-            //Console.ResetColor();
             foreach (Route route in path.routes)
             {
                 foreach (Segment segment in route.segments)

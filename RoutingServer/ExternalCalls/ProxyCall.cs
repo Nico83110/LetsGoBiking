@@ -38,6 +38,7 @@ namespace RoutingServer.ExternalCalls
             IJCDecauxService wcfClient = myChannelFactory.CreateChannel();
             Console.WriteLine("SOAP call to the Proxy...");
             JCDecauxItem result = wcfClient.GetStationDefault(contract_name, stationNumber);
+
             return result;
         }
 

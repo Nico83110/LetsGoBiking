@@ -47,7 +47,7 @@ namespace RoutingServer
         List<GeoJSONModel> GetPathsAsGeoJSON(string startAddress, string endAddress);
 
         [OperationContract]
-        List<Tuple<DateTime, int, string>> getHistory();
+        List<Tuple<DateTime, int, double>> getHistory();
 
         // TODO: ajoutez vos opérations de service ici
     }
