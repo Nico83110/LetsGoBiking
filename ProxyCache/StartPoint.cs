@@ -22,7 +22,7 @@ namespace ProxyCache
                 serviceHost.Open();
 
                 // The service can now be accessed.
-                Console.WriteLine("Le service RoutingServer est prêt à l'adresse : {0}", serviceHost.BaseAddresses[0]);
+                Console.WriteLine("Le service ProxyCache est prêt à l'adresse : {0}", serviceHost.BaseAddresses[0]);
                 Console.WriteLine("Press <ENTER> to terminate service.");
                 Console.WriteLine();
                 Console.ReadLine();

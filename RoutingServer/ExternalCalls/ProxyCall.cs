@@ -36,6 +36,7 @@ namespace RoutingServer.ExternalCalls
             EndpointAddress endpoint = new EndpointAddress("http://localhost:8733/ProxyCache/Service1/");
             ChannelFactory<IJCDecauxService> myChannelFactory = new ChannelFactory<IJCDecauxService>(binding, endpoint);
             IJCDecauxService wcfClient = myChannelFactory.CreateChannel();
+            Console.WriteLine("SOAP call to the Proxy...");
             JCDecauxItem result = wcfClient.GetStationDefault(contract_name, stationNumber);
             return result;
         }

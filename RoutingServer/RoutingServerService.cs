@@ -31,6 +31,7 @@ namespace RoutingServer
 
         public List<StationModel> GetAllStations()
         {
+            Console.WriteLine("REST call for getting all stations has been received");
             return jCDecauxAPI.GetStations().Result;
         }
 

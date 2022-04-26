@@ -49,7 +49,7 @@ namespace ProxyCache
                 //Add to the cache a new instance of T containing data of infos dictionnary
                 else
                 {
-                    Console.WriteLine("Entered into the Get method of the Cache...");
+                    //Console.WriteLine("Entered into the Get method of the Cache...");
                     cache.Add(CacheItemName, (T)Activator.CreateInstance(typeof(T), infos), cacheItemPolicy);
                 }
             }

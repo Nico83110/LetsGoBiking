@@ -20,7 +20,7 @@ namespace ProxyCache
         public JCDecauxItem GetStationDefault(string city, string number)
         {
             //Default expiration time is now+60 seconds as in the subject.
-            Console.WriteLine("Entered into GetStationDefault on Proxy...");
+            //Console.WriteLine("Entered into GetStationDefault on Proxy...");
             return GetStation(city, number, 60);
         }
 
