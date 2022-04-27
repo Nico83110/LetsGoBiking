@@ -55,10 +55,10 @@ namespace HeavyWebClient
                         //string endAddress = "3 Boulevard Michelet, 13008 Marseille";
 
                         Console.Write("Adresse de départ : ");
-                        string startAddress = Console.ReadLine(); // 11 Rue Saint Jacques, Lyon
+                        string startAddress = Console.ReadLine();
 
                         Console.Write("Adresse d'arrivée : ");
-                        string endAddress = Console.ReadLine(); // 19 Place Louis Pradel, Lyon OR 127 Avenue du Prado, Marseille
+                        string endAddress = Console.ReadLine();
 
                         Console.WriteLine("Calcul en cours de l'itinéraire de '" + startAddress + "' vers '" + endAddress + "' ...");
                         Console.WriteLine("\n\n");
@@ -94,20 +94,18 @@ namespace HeavyWebClient
                     }
                     while (Console.ReadKey().Key != ConsoleKey.Enter);
 
-                    //WriteLogs(client);
-                    //BackToMainMenu();
                 }
                 else if (choice.Equals("3"))
                 {
-                    Console.WriteLine("Fermeture ...");
+                    Console.WriteLine("Fermeture en cours...");
                 }
                 else
                 {
-                    Console.WriteLine("Mauvaise entrée, veuillez réessayer ...");
+                    Console.WriteLine("Mauvaise saisie, veuillez réessayer ...");
                     Console.ReadLine();
                     //BackToMainMenu();
                 }
-            } while (choice.Equals("quit") == false);
+            } while (choice.Equals("3") == false);
 
            /*string startAddress = "2 Rue Marc Donadille, 13013 Marseille";
             string endAddress = "3 Boulevard Michelet, 13008 Marseille";
