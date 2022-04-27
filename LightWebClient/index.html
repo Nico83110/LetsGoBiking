@@ -103,8 +103,8 @@
                         + json[2].features[0].properties.segments[0].duration;
                     var currentDate = new Date(Date.now());
                     var arrivalDate = new Date(Date.now() + (totalDurationInSeconds * 1000));
-                    document.getElementById("startHour").innerHTML = currentDate.getHours().toString() + "h" + currentDate.getMinutes().toString();
-                    document.getElementById("endHour").innerHTML = arrivalDate.getHours().toString() + "h" + arrivalDate.getMinutes().toString();
+                    document.getElementById("startHour").innerHTML = ("0" + currentDate.getHours().toString()).slice(-2) + "h" + ("0" + currentDate.getMinutes().toString()).slice(-2);
+                    document.getElementById("endHour").innerHTML = ("0" + arrivalDate.getHours().toString()).slice(-2) + "h" + ("0" + arrivalDate.getMinutes().toString()).slice(-2);
 
                 });
         }
