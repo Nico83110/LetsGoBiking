@@ -30,18 +30,23 @@
 
         <div class="row">
             <div class=".col-lg-5">
-                <div id="map" style="width: 1500px; height: 730px;"></div>
+                <div id="map" style="width: 1400px; height: 730px;"></div>
             </div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Informations d'itinéraire</div>
+            <div class="card text-white bg-secondary md-6 col-md-offset-2" style="max-width: 20rem;">
+                <div class="card-header">
+                    <h3>Informations d'itinéraire</h3>               
+                </div>
+
                 <div class="card-body">
 
-                    <h5 class="card-title">Temps</h5>
-                    <p class="card-text">Heure de départ :</p>
-                    <p class="card-text">Heure d'arrivée :</p>
+                <h5 class="card-title">Temps</h5>
+                <p class="card-text"><h6>Heure de départ : <span id="startHour"</span></h6></p>
+                <p class="card-text"><h6>Heure d'arrivée : <span id="endHour"</span></h6></p>
 
-                    <h5 class="card-title">Instructions</h5>
+                <h5 class="card-title">Instructions</h5>
+
                 </div>
+
             </div>
         </div>
 
@@ -92,6 +97,15 @@
                     endPointCoord = json[2].features[0].geometry.coordinates[json[2].features[0].geometry.coordinates.length - 1];
                     addMarkerToMap(startPointCoord[0], startPointCoord[1], 'res/start-marker.png');
                     addMarkerToMap(endPointCoord[0], endPointCoord[1], 'res/end-marker.png');
+
+                    var totalDurationInSeconds = json[0].features[0].properties.segments[0].duration
+                        + json[1].features[0].properties.segments[0].duration
+                        + json[2].features[0].properties.segments[0].duration;
+                    var currentDate = new Date(Date.now());
+                    var arrivalDate = new Date(Date.now() + (totalDurationInSeconds * 1000));
+                    document.getElementById("startHour").innerHTML = currentDate.getHours().toString() + "h" + currentDate.getMinutes().toString();
+                    document.getElementById("endHour").innerHTML = arrivalDate.getHours().toString() + "h" + arrivalDate.getMinutes().toString();
+
                 });
         }
 
