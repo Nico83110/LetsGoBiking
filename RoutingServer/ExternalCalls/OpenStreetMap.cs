@@ -14,8 +14,8 @@ namespace RoutingServer.ExternalCalls
 {
     public class OpenStreetMap
     {
-        private static HttpClient client = new HttpClient();
-        private static ProxyCall proxy = new ProxyCall();
+        public static HttpClient client = new HttpClient();
+        public static ProxyCall proxy = new ProxyCall();
 
         public OpenStreetMap()
         {
@@ -68,7 +68,8 @@ namespace RoutingServer.ExternalCalls
         public StationModel GetNearestStationFromPosition(Position p)
         {
             StationModel result = new StationModel();
-            List<StationModel> allStations = RoutingServerService.allStations;
+            RoutingServerService routing = new RoutingServerService();
+            List<StationModel> allStations = routing.GetAllStations();
             GeoCoordinate currentGeoP = new GeoCoordinate(p.latitude, p.longitude);
             double distance = 100000000000; //No distance should be superior to that hopefully
 

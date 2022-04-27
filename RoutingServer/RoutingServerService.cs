@@ -20,19 +20,19 @@ namespace RoutingServer
         private static OpenStreetMap openStreetMap = new OpenStreetMap();
         private static OpenRouteServiceAPI openRouteServiceAPI = new OpenRouteServiceAPI();
 
-        public static List<StationModel> allStations = jCDecauxAPI.GetStations().Result;
+        //public static List<StationModel> allStations = JsonSerializer.Deserialize<List<StationModel>>(jCDecauxAPI.GetStations().Result);
 
         public static List<Tuple<DateTime, int, double>> history = new List<Tuple<DateTime, int, double>>();
 
         public RoutingServerService() {
             //To fix CORS policy error in browser request
-            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+            WebOperationContext.Current.OutgoingResponse.Headers.Set("Access-Control-Allow-Origin", "*");
         }
 
         public List<StationModel> GetAllStations()
         {
             Console.WriteLine("REST call for getting all stations has been received");
-            return jCDecauxAPI.GetStations().Result;
+            return JsonSerializer.Deserialize<List<StationModel>>(jCDecauxAPI.GetStations().Result);
         }
 
         public StationModel GetSpecificStation(string city, string station_number)

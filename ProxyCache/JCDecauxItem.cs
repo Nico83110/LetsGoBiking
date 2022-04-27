@@ -97,8 +97,8 @@ namespace ProxyCache
         public int available_bikes { get; set; }
         [DataMember]
         public string status { get; set; }
-        [DataMember]
-        public DateTime last_update { get; set; }
+        //[DataMember]
+        //public DateTime last_update { get; set; }
         [DataMember]
         public bool connected { get; set; }
         [DataMember]

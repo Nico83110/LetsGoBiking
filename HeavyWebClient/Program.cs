@@ -38,7 +38,9 @@ namespace HeavyWebClient
             do
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Bienvenue sur le client .Net de Let's Go Biking !");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\nChoisissez ce que vous voulez faire :");
                 Console.WriteLine("\t- 1. Obtenir l'itinéraire par étapes avec des vélos si possible");
                 Console.WriteLine("\t- 2. Afficher les statistiques d'utilisation des appels au Proxy/Cache");
@@ -64,15 +66,23 @@ namespace HeavyWebClient
                         Console.WriteLine("\n\n");
 
                         List<PathModel> paths = wcfClient.GetPaths(startAddress, endAddress);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Voici le premier chemin à emprunter à pied : ");
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("");
                         PrintInstructions(paths[0]);
                         Console.WriteLine("\n");
+
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Vous arrivez ici à la station JCDecaux de départ. Voici le chemin à vélo à suivre : ");
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("");
                         PrintInstructions(paths[1]);
                         Console.WriteLine("\n");
+
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Vous arrivez ici à la station JCDecaux de fin. Voici le chemin à pied à suivre : ");
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("");
                         PrintInstructions(paths[2]);
                     }
@@ -82,13 +92,15 @@ namespace HeavyWebClient
                 {
                     do
                     {
-                        Console.WriteLine("Voici les appels faits au cache pour avoir une station : ");
+                        Console.WriteLine("Voici les appels faits au cache pour avoir une station : \n");
                         List<Tuple<DateTime, int, double>> history = wcfClient.getHistory();
                         foreach (Tuple<DateTime, int, double> log in history)
                         {
-                            Console.WriteLine(log.Item1);
-                            Console.WriteLine(log.Item2);
-                            Console.WriteLine(log.Item3 + " ms");
+                            Console.WriteLine('\t' + log.Item1.ToString());
+                            Console.WriteLine('\t' + log.Item2.ToString());
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine('\t' + log.Item3.ToString() + " ms");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("");
                         }
                     }
@@ -135,7 +147,7 @@ namespace HeavyWebClient
                 {
                     foreach (Step step in segment.steps)
                     {
-                        Console.WriteLine(step.instruction);
+                        Console.WriteLine('\t' + step.instruction);
                     }
                 }
             }

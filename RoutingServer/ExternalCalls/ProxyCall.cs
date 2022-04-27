@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RoutingServer.ExternalCalls
 {
-    internal class ProxyCall
+    public class ProxyCall
     {
         private static HttpClient client = new HttpClient();
 
