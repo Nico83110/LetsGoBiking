@@ -3,7 +3,7 @@ ul.scroll {
     padding: 4px; 
     width: 280px;
     height: 450px;
-    background-color: black;
+    background-color: lightslategrey;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;

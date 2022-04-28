@@ -5,12 +5,12 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Welcome to the JCDecaux path finder !</title>
+    <title>Let's Go Biking !</title>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">
-            <img src="res/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="res/logo.png" width="40" height="30" class="d-inline-block align-top" alt="">
             Let's go biking
         </span>
     </nav>
@@ -34,16 +34,16 @@
             </div>
             <div class="card text-white bg-secondary md-6 col-md-offset-2" style="max-width: 20rem;">
                 <div class="card-header">
-                    <h3>Informations d'itinéraire</h3>               
+                    <h2>Informations d'itinéraire</h2>               
                 </div>
 
                 <div class="card-body">
 
-                <h5 class="card-title">Temps</h5>
-                <p class="card-text"><h6>Heure de départ : <span id="startHour"</span></h6></p>
-                <p class="card-text"><h6>Heure d'arrivée : <span id="endHour"</span></h6></p>
+                <h4 class="card-title">Temps :</h4>
+                <p class="card-text"><h6>Heure de départ : <b><span id="startHour"</span></b></h6></p>
+                <p class="card-text"><h6>Heure d'arrivée : <b><span id="endHour"</span></b></h6></p>
 
-                <h5 class="card-title">Instructions</h5>
+                <h4 class="card-title">Instructions :</h4>
                     <div >
                     <ul class="scroll" id="instructions" style="overflow: scroll"></ul>
                     </div>
@@ -146,7 +146,16 @@
 
         function addAllStationMarkersToMap(stations) {
             stations.forEach(obj => {
-                addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/station.png');
+                if (obj['status'] == "OPEN") {
+                    if (obj['available_bikes'] > 0) {
+                        addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/station.png');
+                    }
+                    //No bikes available at the station
+                    else addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/stationEmptyBikes.png');
+                }
+                //Closed station
+                else addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/stationClosed.png');
+                
                 /*
                 Object.entries(obj).forEach(([key, value]) => {
                     console.log(`${key} ${value}`);
@@ -209,7 +218,7 @@
             // Configure the style of the line
             var lineStyleWalking = new ol.style.Style({
                 stroke: new ol.style.Stroke({
-                    color: '#ffcc33',
+                    color: '#006400',
                     width: 5
                 })
             });
