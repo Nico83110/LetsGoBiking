@@ -37,7 +37,7 @@ namespace RoutingServer
 
         public StationModel GetSpecificStation(string city, string station_number)
         {
-            //Console.WriteLine("Entered into the GetSpecificStation method...");
+            Console.WriteLine("REST call for getting specific stations has been received");
             StationModel station = JsonSerializer.Deserialize<StationModel>(proxy.GetStationInfos(city, station_number).station);
             return station;
         }

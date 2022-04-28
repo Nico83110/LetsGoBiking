@@ -86,7 +86,16 @@ namespace RoutingServer.ExternalCalls
                     Console.WriteLine("The call to the proxy took {0} ms", ts.TotalMilliseconds);
                     RoutingServerService.addToHistory(DateTime.Now, result.number, ts.TotalMilliseconds);
 
-                    result = stationFromCache;
+                    if (stationFromCache.status.Equals("OPEN"))
+                    {
+                        if (stationFromCache.available_bikes > 0)
+                        {
+                            result = stationFromCache;
+                        }
+                        //else Console.WriteLine("No bike is available in this station...");
+                    }
+                    //else Console.WriteLine("The station is closed !");
+
                     distance = currentGeoP.GetDistanceTo(stationGeoP);
 
  

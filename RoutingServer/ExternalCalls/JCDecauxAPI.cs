@@ -29,7 +29,7 @@ namespace RoutingServer.ExternalCalls
                 HttpResponseMessage response = await client.GetAsync(stationsRequest);
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
+                //Console.WriteLine(body);
                 return body;
             }
             catch (HttpRequestException)
