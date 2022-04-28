@@ -1,0 +1,10 @@
+ul.scroll {
+    margin: 2px, 4px;
+    padding: 4px; 
+    width: 280px;
+    height: 450px;
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}

@@ -44,7 +44,10 @@
                 <p class="card-text"><h6>Heure d'arrivée : <span id="endHour"</span></h6></p>
 
                 <h5 class="card-title">Instructions</h5>
-
+                    <div >
+                    <ul class="scroll" id="instructions" style="overflow: scroll"></ul>
+                    </div>
+             
                 </div>
 
             </div>
@@ -106,6 +109,31 @@
                     document.getElementById("startHour").innerHTML = ("0" + currentDate.getHours().toString()).slice(-2) + "h" + ("0" + currentDate.getMinutes().toString()).slice(-2);
                     document.getElementById("endHour").innerHTML = ("0" + arrivalDate.getHours().toString()).slice(-2) + "h" + ("0" + arrivalDate.getMinutes().toString()).slice(-2);
 
+                    firstPathInstructions = json[0].features[0].properties.segments[0].steps;
+                    secondPathInstructions = json[1].features[0].properties.segments[0].steps;
+                    thirdPathInstructions = json[2].features[0].properties.segments[0].steps;
+
+                    for (let i = 0; i < firstPathInstructions.length; i++) {
+                        console.log('Instruction : ' + firstPathInstructions[i].instruction);
+                    }
+
+                    let list = document.getElementById("instructions");
+
+                    firstPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
+                    secondPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
+                    thirdPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
                 });
         }
 
@@ -144,6 +172,8 @@
             var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([lon, lat])));
             markers.getSource().addFeature(marker);
         }
+
+        
 
         function drawLineFromGeoJSON(json) {
             console.log(json);
