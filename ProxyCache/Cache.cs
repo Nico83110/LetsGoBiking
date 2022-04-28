@@ -10,7 +10,7 @@ namespace ProxyCache
 {
     public class Cache<T> : ICache<T> where T : new()
     {
-        private ObjectCache cache;
+        private ObjectCache cache; //contains default MemoryCache
         private DateTimeOffset dt_default { get; set; }
 
         public Cache()
