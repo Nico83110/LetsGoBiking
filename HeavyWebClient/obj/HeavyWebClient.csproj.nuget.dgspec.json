@@ -1,0 +1,103 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj",
+        "projectName": "HeavyWebClient",
+        "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj",
+        "packagesPath": "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Nicolas PERRIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
+              },
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
+            "System.ServiceModel.Web": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj",
+        "projectName": "ProxyCache",
+        "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj",
+        "projectName": "RoutingServer",
+        "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+                "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    }
+  }
+}

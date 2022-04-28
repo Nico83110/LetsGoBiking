@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Inx8E/vHdq0wfJnirVRweh91yHClH35A3SqjXTDRmxJTyH3g4qS4xc4sGsc2u8UysAz/qQxPWIpcvvvqoyelFw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\system.servicemodel.http\\4.9.0\\system.servicemodel.http.4.9.0.nupkg.sha512",
+    "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\system.servicemodel.primitives\\4.9.0\\system.servicemodel.primitives.4.9.0.nupkg.sha512",
+    "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\system.servicemodel.web\\1.0.0\\system.servicemodel.web.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

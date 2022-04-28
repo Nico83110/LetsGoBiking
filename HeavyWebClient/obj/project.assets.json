@@ -1,0 +1,323 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "System.ServiceModel.Http/4.9.0": {
+        "type": "package",
+        "dependencies": {
+          "System.ServiceModel.Primitives": "4.9.0"
+        },
+        "frameworkAssemblies": [
+          "System.IdentityModel",
+          "System.ServiceModel"
+        ],
+        "compile": {
+          "ref/net461/System.ServiceModel.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.ServiceModel.Http.dll": {}
+        }
+      },
+      "System.ServiceModel.Primitives/4.9.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.IdentityModel",
+          "System.ServiceModel"
+        ],
+        "compile": {
+          "ref/net461/System.ServiceModel.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.ServiceModel.Primitives.dll": {}
+        }
+      },
+      "System.ServiceModel.Web/1.0.0": {
+        "type": "package"
+      },
+      "ProxyCache/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ProxyCache.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProxyCache.dll": {}
+        }
+      },
+      "RoutingServer/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "ProxyCache": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RoutingServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RoutingServer.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win7-x86": {
+      "System.ServiceModel.Http/4.9.0": {
+        "type": "package",
+        "dependencies": {
+          "System.ServiceModel.Primitives": "4.9.0"
+        },
+        "frameworkAssemblies": [
+          "System.IdentityModel",
+          "System.ServiceModel"
+        ],
+        "compile": {
+          "ref/net461/System.ServiceModel.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.ServiceModel.Http.dll": {}
+        }
+      },
+      "System.ServiceModel.Primitives/4.9.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.IdentityModel",
+          "System.ServiceModel"
+        ],
+        "compile": {
+          "ref/net461/System.ServiceModel.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.ServiceModel.Primitives.dll": {}
+        }
+      },
+      "System.ServiceModel.Web/1.0.0": {
+        "type": "package"
+      },
+      "ProxyCache/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ProxyCache.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProxyCache.dll": {}
+        }
+      },
+      "RoutingServer/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "ProxyCache": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RoutingServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RoutingServer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "System.ServiceModel.Http/4.9.0": {
+      "sha512": "Z+s3RkLNzJ31fDXAjqXdXp67FqsNG4V3Md3r7FOrzMkHmg61gY8faEfTFPBLxU9tax1HPWt6IHVAquXBKySJaw==",
+      "type": "package",
+      "path": "system.servicemodel.http/4.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/net46/System.ServiceModel.Http.dll",
+        "lib/net461/System.ServiceModel.Http.dll",
+        "lib/net461/System.ServiceModel.Http.pdb",
+        "lib/net6.0/System.ServiceModel.Http.dll",
+        "lib/net6.0/System.ServiceModel.Http.pdb",
+        "lib/netcore50/System.ServiceModel.Http.dll",
+        "lib/netstandard1.3/System.ServiceModel.Http.dll",
+        "lib/netstandard2.0/System.ServiceModel.Http.dll",
+        "lib/netstandard2.0/System.ServiceModel.Http.pdb",
+        "lib/portable-net45+win8+wp8/_._",
+        "lib/win8/_._",
+        "lib/wp8/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/net46/System.ServiceModel.Http.dll",
+        "ref/net461/System.ServiceModel.Http.dll",
+        "ref/net6.0/System.ServiceModel.Http.dll",
+        "ref/netcore50/System.ServiceModel.Http.dll",
+        "ref/netstandard1.0/System.ServiceModel.Http.dll",
+        "ref/netstandard1.1/System.ServiceModel.Http.dll",
+        "ref/netstandard1.3/System.ServiceModel.Http.dll",
+        "ref/netstandard2.0/System.ServiceModel.Http.dll",
+        "ref/portable-net45+win8+wp8/_._",
+        "ref/win8/_._",
+        "ref/wp8/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.servicemodel.http.4.9.0.nupkg.sha512",
+        "system.servicemodel.http.nuspec"
+      ]
+    },
+    "System.ServiceModel.Primitives/4.9.0": {
+      "sha512": "LTFPVdS8Nf76xg/wRZkDa+2Q+GnjTOmwkTlwuoetwX37mAfYnGkf7p8ydhpDwVmomNljpUOhUUGxfjQyd5YcOg==",
+      "type": "package",
+      "path": "system.servicemodel.primitives/4.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/net46/System.ServiceModel.Primitives.dll",
+        "lib/net461/System.ServiceModel.Primitives.dll",
+        "lib/net461/System.ServiceModel.Primitives.pdb",
+        "lib/net6.0/System.ServiceModel.Primitives.dll",
+        "lib/net6.0/System.ServiceModel.Primitives.pdb",
+        "lib/net6.0/System.ServiceModel.dll",
+        "lib/netcore50/System.ServiceModel.Primitives.dll",
+        "lib/netcoreapp2.1/System.ServiceModel.Primitives.dll",
+        "lib/netcoreapp2.1/System.ServiceModel.Primitives.pdb",
+        "lib/netcoreapp2.1/System.ServiceModel.dll",
+        "lib/netstandard1.3/System.ServiceModel.Primitives.dll",
+        "lib/netstandard2.0/System.ServiceModel.Primitives.dll",
+        "lib/netstandard2.0/System.ServiceModel.Primitives.pdb",
+        "lib/netstandard2.0/System.ServiceModel.dll",
+        "lib/portable-net45+win8+wp8/_._",
+        "lib/win8/_._",
+        "lib/wp8/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/net46/System.ServiceModel.Primitives.dll",
+        "ref/net461/System.ServiceModel.Primitives.dll",
+        "ref/net6.0/System.ServiceModel.Primitives.dll",
+        "ref/net6.0/System.ServiceModel.dll",
+        "ref/netcore50/System.ServiceModel.Primitives.dll",
+        "ref/netcoreapp2.1/System.ServiceModel.Primitives.dll",
+        "ref/netcoreapp2.1/System.ServiceModel.dll",
+        "ref/netstandard1.0/System.ServiceModel.Primitives.dll",
+        "ref/netstandard1.1/System.ServiceModel.Primitives.dll",
+        "ref/netstandard1.3/System.ServiceModel.Primitives.dll",
+        "ref/netstandard2.0/System.ServiceModel.Primitives.dll",
+        "ref/netstandard2.0/System.ServiceModel.dll",
+        "ref/portable-net45+win8+wp8/_._",
+        "ref/win8/_._",
+        "ref/wp8/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.servicemodel.primitives.4.9.0.nupkg.sha512",
+        "system.servicemodel.primitives.nuspec"
+      ]
+    },
+    "System.ServiceModel.Web/1.0.0": {
+      "sha512": "8RbqIHCWiFyuOiMksjDOJ32dFWrmu/Ma2l7yF+Xx6eY3L95Si260WlIAmtY1GZ5bgyg9tDC1R83lhLT4gKMbEw==",
+      "type": "package",
+      "path": "system.servicemodel.web/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGet.exe",
+        "System.ServiceModel.Web.dll",
+        "system.servicemodel.web.1.0.0.nupkg.sha512",
+        "system.servicemodel.web.nuspec"
+      ]
+    },
+    "ProxyCache/1.0.0": {
+      "type": "project",
+      "path": "../ProxyCache/ProxyCache.csproj",
+      "msbuildProject": "../ProxyCache/ProxyCache.csproj"
+    },
+    "RoutingServer/1.0.0": {
+      "type": "project",
+      "path": "../RoutingServer/RoutingServer.csproj",
+      "msbuildProject": "../RoutingServer/RoutingServer.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "ProxyCache >= 1.0.0",
+      "RoutingServer >= 1.0.0",
+      "System.ServiceModel.Http >= 4.9.0",
+      "System.ServiceModel.Web >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj",
+      "projectName": "HeavyWebClient",
+      "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\HeavyWebClient.csproj",
+      "packagesPath": "C:\\Users\\Nicolas PERRIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\HeavyWebClient\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Nicolas PERRIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "projectReferences": {
+            "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj": {
+              "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\ProxyCache\\ProxyCache.csproj"
+            },
+            "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj": {
+              "projectPath": "C:\\Users\\Nicolas PERRIN\\source\\repos\\Nico83110\\LetsGoBiking\\RoutingServer\\RoutingServer.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "targetAlias": "net48",
+        "dependencies": {
+          "System.ServiceModel.Http": {
+            "target": "Package",
+            "version": "[4.9.0, )"
+          },
+          "System.ServiceModel.Web": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win7-x86": {
+        "#import": []
+      }
+    }
+  }
+}

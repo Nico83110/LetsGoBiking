@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Let's Go Biking !</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">
+            <img src="res/logo.png" width="40" height="30" class="d-inline-block align-top" alt="">
+            Let's go biking
+        </span>
+    </nav>
+
+    <form onsubmit="callGetPath()" id="addressesForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Addresse de départ</label>
+            <input type="text" class="form-control" id="startAddress" placeholder="D'où partez vous ?">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Addresse de destination</label>
+            <input type="text" class="form-control" id="endAddress" placeholder="Où allez-vous ?">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">Obtenir l'itinéraire</button>
+    </form>
+
+        <div class="row">
+            <div class=".col-lg-5">
+                <div id="map" style="width: 1400px; height: 730px;"></div>
+            </div>
+            <div class="card text-white bg-secondary md-6 col-md-offset-2" style="max-width: 20rem;">
+                <div class="card-header">
+                    <h2>Informations d'itinéraire</h2>               
+                </div>
+
+                <div class="card-body">
+
+                <h4 class="card-title">Temps :</h4>
+                <p class="card-text"><h6>Heure de départ : <b><span id="startHour"</span></b></h6></p>
+                <p class="card-text"><h6>Heure d'arrivée : <b><span id="endHour"</span></b></h6></p>
+
+                <h4 class="card-title">Instructions :</h4>
+                    <div >
+                    <ul class="scroll" id="instructions" style="overflow: scroll"></ul>
+                    </div>
+             
+                </div>
+
+            </div>
+        </div>
+
+
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <script>
+        var attribution = new ol.control.Attribution({
+            collapsible: false
+        });
+
+        var map = new ol.Map({
+            target: 'map', // <-- This is the id of the div in which the map will be built.
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+
+            view: new ol.View({
+                center: ol.proj.fromLonLat([5.394495, 43.304042]), // <-- Those are the GPS coordinates to center the map to.
+                zoom: 10 // You can adjust the default zoom.
+            })
+
+        });
+
+        var form = document.getElementById("addressesForm");
+        function handleForm(event) { event.preventDefault(); }
+        form.addEventListener('submit', handleForm);
+
+        //var startAddress = "2 Rue Marc Donadille, 13013 Marseille";
+        //var endAddress = "3 Boulevard Michelet, 13008 Marseille";
+
+        var startAddress = document.getElementById("startAddress").value;
+        var endAddress = document.getElementById("endAddress").value;
+
+
+        function callGetPath() {
+            uri = 'http://localhost:8733/api/geojson/address?start='
+                + document.getElementById("startAddress").value
+                + '&end='
+                + document.getElementById("endAddress").value;
+            fetch(uri, { method: 'GET' })
+                .then(response => response.json())
+                .then(function (json) {
+                    drawLineFromGeoJSON(json);
+                    startPointCoord = json[0].features[0].geometry.coordinates[0];
+                    endPointCoord = json[2].features[0].geometry.coordinates[json[2].features[0].geometry.coordinates.length - 1];
+                    addMarkerToMap(startPointCoord[0], startPointCoord[1], 'res/start-marker.png');
+                    addMarkerToMap(endPointCoord[0], endPointCoord[1], 'res/end-marker.png');
+
+                    var totalDurationInSeconds = json[0].features[0].properties.segments[0].duration
+                        + json[1].features[0].properties.segments[0].duration
+                        + json[2].features[0].properties.segments[0].duration;
+                    var currentDate = new Date(Date.now());
+                    var arrivalDate = new Date(Date.now() + (totalDurationInSeconds * 1000));
+                    document.getElementById("startHour").innerHTML = ("0" + currentDate.getHours().toString()).slice(-2) + "h" + ("0" + currentDate.getMinutes().toString()).slice(-2);
+                    document.getElementById("endHour").innerHTML = ("0" + arrivalDate.getHours().toString()).slice(-2) + "h" + ("0" + arrivalDate.getMinutes().toString()).slice(-2);
+
+                    firstPathInstructions = json[0].features[0].properties.segments[0].steps;
+                    secondPathInstructions = json[1].features[0].properties.segments[0].steps;
+                    thirdPathInstructions = json[2].features[0].properties.segments[0].steps;
+
+                    for (let i = 0; i < firstPathInstructions.length; i++) {
+                        console.log('Instruction : ' + firstPathInstructions[i].instruction);
+                    }
+
+                    let list = document.getElementById("instructions");
+
+                    firstPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
+                    secondPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
+                    thirdPathInstructions.forEach((item) => {
+                        let li = document.createElement("li");
+                        li.innerText = item.instruction;
+                        list.appendChild(li);
+                    });
+                });
+        }
+
+        function callGetAllStations() {
+            uri = 'http://localhost:8733/api/getAllStations';
+            fetch(uri, { method: 'GET' })
+                .then(response => response.json())
+                .then(json => addAllStationMarkersToMap(json));
+        }
+
+        function addAllStationMarkersToMap(stations) {
+            stations.forEach(obj => {
+                if (obj['status'] == "OPEN") {
+                    if (obj['available_bikes'] > 0) {
+                        addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/station.png');
+                    }
+                    //No bikes available at the station
+                    else addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/stationEmptyBikes.png');
+                }
+                //Closed station
+                else addMarkerToMap(obj['position']['longitude'], obj['position']['latitude'], 'res/stationClosed.png');
+                
+                /*
+                Object.entries(obj).forEach(([key, value]) => {
+                    console.log(`${key} ${value}`);
+                });
+                console.log('-------------------');
+                */
+            });
+        }
+
+        function addMarkerToMap(lon, lat, image) {
+            //console.log('Longitude and latitude for marker are : ' + lon + " " + lat);
+            var markers = new ol.layer.Vector({
+                source: new ol.source.Vector(),
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: image
+                    })
+                })
+            });
+            map.addLayer(markers);
+
+            var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([lon, lat])));
+            markers.getSource().addFeature(marker);
+        }
+
+        
+
+        function drawLineFromGeoJSON(json) {
+            console.log(json);
+            // Create an array containing the GPS positions you want to draw
+            //var coords = [[7.0985774, 43.6365619], [7.1682519, 43.67163]];
+            var coords1 = json[0].features[0].geometry.coordinates;
+            var coords2 = json[1].features[0].geometry.coordinates;
+            var coords3 = json[2].features[0].geometry.coordinates;
+
+            var lineString1 = new ol.geom.LineString(coords1);
+            var lineString2 = new ol.geom.LineString(coords2);
+            var lineString3 = new ol.geom.LineString(coords3);
+
+            // Transform to EPSG:3857
+            lineString1.transform('EPSG:4326', 'EPSG:3857');
+            lineString2.transform('EPSG:4326', 'EPSG:3857');
+            lineString3.transform('EPSG:4326', 'EPSG:3857');
+
+            // Create the feature
+            var feature1 = new ol.Feature({
+                geometry: lineString1,
+                name: 'Line'
+            });
+            var feature2 = new ol.Feature({
+                geometry: lineString2,
+                name: 'Line'
+            });
+            var feature3 = new ol.Feature({
+                geometry: lineString3,
+                name: 'Line'
+            });
+
+            // Configure the style of the line
+            var lineStyleWalking = new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#006400',
+                    width: 5
+                })
+            });
+            var lineStyleCycling = new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#00008b',
+                    width: 5
+                })
+            });
+
+            var source1 = new ol.source.Vector({
+                features: [feature1]
+            });
+            var source2 = new ol.source.Vector({
+                features: [feature2]
+            });
+            var source3 = new ol.source.Vector({
+                features: [feature3]
+            });
+
+            var vector1 = new ol.layer.Vector({
+                source: source1,
+                style: [lineStyleWalking]
+            });
+            var vector2 = new ol.layer.Vector({
+                source: source2,
+                style: [lineStyleCycling]
+            });
+            var vector3 = new ol.layer.Vector({
+                source: source3,
+                style: [lineStyleWalking]
+            });
+
+            map.addLayer(vector1);
+            map.addLayer(vector2);
+            map.addLayer(vector3);
+        }
+
+        callGetAllStations();
+
+
+
+    </script>
+</body>
+</html>
