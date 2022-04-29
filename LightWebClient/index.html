@@ -125,6 +125,7 @@
                     secondPathInstructions = json[1].features[0].properties.segments[0].steps;
                     thirdPathInstructions = json[2].features[0].properties.segments[0].steps;
 
+
                     for (let i = 0; i < firstPathInstructions.length; i++) {
                         console.log('Instruction : ' + firstPathInstructions[i].instruction);
                     }
@@ -133,17 +134,17 @@
 
                     firstPathInstructions.forEach((item) => {
                         let li = document.createElement("li");
-                        li.innerText = item.instruction;
+                        li.innerText = item.instruction + " (" + item.distance + "m)";
                         list.appendChild(li);
                     });
                     secondPathInstructions.forEach((item) => {
                         let li = document.createElement("li");
-                        li.innerText = item.instruction;
+                        li.innerText = item.instruction + " (" + item.distance + "m)";
                         list.appendChild(li);
                     });
                     thirdPathInstructions.forEach((item) => {
                         let li = document.createElement("li");
-                        li.innerText = item.instruction;
+                        li.innerText = item.instruction + " (" + item.distance + "m)";
                         list.appendChild(li);
                     });
                 });

@@ -32,6 +32,8 @@ namespace RoutingServer.ExternalCalls
                 //Mandatory for every POST Request on OpenRouteService
                 httpRequest.Headers.Add("Authorization", apiKey);
 
+                Console.WriteLine("REST call to OpenRoute API");
+
                 HttpResponseMessage response = await client.SendAsync(httpRequest);
                 response.EnsureSuccessStatusCode();
 
